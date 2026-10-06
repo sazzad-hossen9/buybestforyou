@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "automotive",
+    "name": "Automotive",
+    "dotColor": "#7A4E2D",
+    "tintBg": "#F4EDE7",
+    "accentBorder": "#E6DDD5",
+    "description": "This hub covers the gear that keeps a vehicle running, connected, and presentable: car electronics and GPS units, automotive parts and touch-up supplies, and driving accessories. It's for anyone comparing options before a purchase, whether that's a jump starter for winter mornings, a paint pen for a scratch, or a mount for a phone. Guides here focus on practical decision points: which features actually matter for daily driving, what's worth paying more for, and where cheaper options hold up fine. Coverage is uneven across subcategories right now, so start with the featured picks below if you're not sure where to begin.",
+    "subcategories": [
+      { "name": "Automotive Parts & Accessories", "slug": "parts", "count": 6 },
+      { "name": "Car Electronics & GPS", "slug": "electronics", "count": 4 },
+      { "name": "Driving Accessories", "slug": "accessories", "count": 1 }
+    ],
+    "mostSearched": ["Dash Cams", "Paint Pens", "Jump Starters", "OBD-II Scanners"],
+    "editorSlug": "marcus-webb",
+    "reviewCount": 11,
+    "image": "/images/cat-automotive.jpg"
+  },
+  {
+    "slug": "electronics",
+    "name": "Electronics",
+    "dotColor": "#2E6FA3",
+    "tintBg": "#E9F1F8",
+    "accentBorder": "#D6E4F0",
+    "description": "Headphones, projectors, and everyday electronics, weighed on performance, build quality, and true real-world price.",
+    "subcategories": [
+      { "name": "Headphones & Audio", "slug": "audio", "count": 42 },
+      { "name": "Projectors & Displays", "slug": "projectors", "count": 28 },
+      { "name": "Smart Devices & Robotics", "slug": "smart", "count": 24 }
+    ],
+    "mostSearched": ["Wireless Earbuds", "Daylight Projectors", "Smart Robots", "Noise Canceling"],
+    "editorSlug": "jordan-kim",
+    "reviewCount": 94,
+    "image": "/images/cat-electronics.jpg"
+  },
+  {
+    "slug": "home-appliances",
+    "name": "Home Appliances",
+    "dotColor": "#3A8452",
+    "tintBg": "#E8F2EB",
+    "accentBorder": "#D3E5D8",
+    "description": "Kitchen tools, vacuums, and household equipment, evaluated for reliability, longevity, and true day-to-day value.",
+    "subcategories": [
+      { "name": "Kitchen & Cooking", "slug": "kitchen", "count": 45 },
+      { "name": "Vacuum Cleaners", "slug": "vacuums", "count": 38 },
+      { "name": "Refrigeration", "slug": "refrigeration", "count": 20 }
+    ],
+    "mostSearched": ["Robot Vacuums", "Pressure Cookers", "Blenders", "Espresso Machines"],
+    "editorSlug": "priya-nair",
+    "reviewCount": 103,
+    "image": "/images/cat-home.jpg"
+  },
+  {
+    "slug": "health-and-fitness",
+    "name": "Health and Fitness",
+    "dotColor": "#B23A5C",
+    "tintBg": "#F8E9EE",
+    "accentBorder": "#F0D5DF",
+    "description": "Wellness and fitness gear, matched to different routines, recovery requirements, and realistic everyday budgets.",
+    "subcategories": [
+      { "name": "Fitness Equipment", "slug": "fitness", "count": 8 },
+      { "name": "Recovery & Therapy", "slug": "recovery", "count": 4 },
+      { "name": "Personal Care", "slug": "care", "count": 2 }
+    ],
+    "mostSearched": ["Adjustable Dumbbells", "Infrared Masks", "Massage Guns", "Yoga Mats"],
+    "editorSlug": "sam-okafor",
+    "reviewCount": 14,
+    "image": "/images/cat-health.jpg"
+  },
+  {
+    "slug": "lawn-and-garden",
+    "name": "Lawn and Garden",
+    "dotColor": "#3A8452",
+    "tintBg": "#E8F2EB",
+    "accentBorder": "#D3E5D8",
+    "description": "Smart robotic mowers, electric corded tools, and automated garden helpers tested across yard sizes and slopes.",
+    "subcategories": [
+      { "name": "Robotic Lawn Mowers", "slug": "robot-mowers", "count": 5 },
+      { "name": "Electric Lawn Mowers", "slug": "electric-mowers", "count": 4 }
+    ],
+    "mostSearched": ["Robot Lawn Mower", "RTK Wire-free Mower", "Cordless Mower"],
+    "editorSlug": "marcus-webb",
+    "reviewCount": 9,
+    "image": "/images/cat-lawn.jpg"
+  }
+]

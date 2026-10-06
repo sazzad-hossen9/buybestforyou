@@ -1,0 +1,44 @@
+{
+  "home": [
+    {
+      "question": "How does BuyBestForYou make money?",
+      "answer": "We earn affiliate commissions when you click our links to retailer sites like Amazon and make qualifying purchases. This costs you nothing extra. Our ratings, rankings, and editorial selections are never for sale and are determined entirely by independent research."
+    },
+    {
+      "question": "Do you test every product yourselves?",
+      "answer": "No, we do not claim hands-on physical testing for the products we cover. Instead, our editors analyze technical specifications, thousands of verified buyer reviews, and independent lab and press coverage to synthesize objective composite ratings."
+    },
+    {
+      "question": "How often are guides updated?",
+      "answer": "Our guides are reviewed on a regular schedule—typically every 3 to 6 months or whenever significant product updates, firmware revisions, or pricing changes occur in the market."
+    }
+  ],
+  "automotive": [
+    {
+      "question": "What resolution dash cam do I actually need?",
+      "answer": "For most drivers, a true 1440p (2K) camera with high dynamic range (HDR) offers the best balance of license-plate legibility and SD card storage efficiency. 4K models provide extra zoom detail in daylight but generate larger files that overwrite faster."
+    },
+    {
+      "question": "Do OBD-II scanners work on every car?",
+      "answer": "Standard OBD-II diagnostic protocols are federally mandated on all petrol cars sold in North America from 1996 onward and across the EU from 2001 (petrol) and 2004 (diesel). Basic code reading works universally, though proprietary ABS and airbag codes may require vehicle-specific scanners."
+    },
+    {
+      "question": "How do I find my car's paint code?",
+      "answer": "Your vehicle's paint code is stamped on the manufacturer's VIN certification sticker, typically located on the driver-side door jamb, under the hood near the strut tower, or in the spare tire compartment."
+    }
+  ],
+  "paintPen": [
+    {
+      "question": "Will it match my car's colour?",
+      "answer": "Exact-match paint pens use manufacturer OEM color codes for solid, metallic, and pearl finishes. Ensure you match the alphanumeric paint code printed on your vehicle's door jamb rather than relying on color names."
+    },
+    {
+      "question": "Do I need the clear coat?",
+      "answer": "Yes. Clear coat protects the base color pigment against UV fading, oxidation, and road salt while leveling the repair flush with the surrounding factory clear coat."
+    },
+    {
+      "question": "Did you test this yourselves?",
+      "answer": "We did not physically test this product. The composite score of 4.6 combines verified buyer ratings (4.7), manufacturer specification compliance (4.5), expert coverage (4.6), and price tier value (4.4)."
+    }
+  ]
+}

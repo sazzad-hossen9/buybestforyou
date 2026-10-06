@@ -1,0 +1,100 @@
+{
+  "name": "buybestforyou",
+  "domain": "buybestforyou.com",
+  "tagline": "Real research. Straight answers. No fluff.",
+  "description": "Composite ratings, verified buyer data, and expert lab/press coverage, compared side by side across Automotive, Electronics, Home Appliances, and Health and Fitness.",
+  "affiliateDisclosureBar": {
+    "text": "As an Amazon Associate we earn from qualifying purchases. Rankings are never for sale.",
+    "linkLabel": "How we make money",
+    "linkHref": "/legal/affiliate-disclosure"
+  },
+  "affiliateDisclosureFooter": {
+    "title": "AFFILIATE DISCLOSURE",
+    "text": "BuyBestForYou.com is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate, we earn from qualifying purchases at no additional cost to you.",
+    "disclaimerLinkLabel": "Read full disclaimer →",
+    "disclaimerLinkHref": "/legal/affiliate-disclosure"
+  },
+  "navigation": [
+    {
+      "name": "Automotive",
+      "href": "/category/automotive",
+      "hasDropdown": true,
+      "dropdownItems": [
+        { "name": "Automotive Parts & Accessories", "href": "/category/automotive?sub=parts", "count": 6 },
+        { "name": "Car Electronics & GPS", "href": "/category/automotive?sub=electronics", "count": 4 },
+        { "name": "Driving Accessories", "href": "/category/automotive?sub=accessories", "count": 1 }
+      ]
+    },
+    {
+      "name": "Electronics",
+      "href": "/category/electronics",
+      "hasDropdown": true,
+      "dropdownItems": [
+        { "name": "Headphones & Audio", "href": "/category/electronics?sub=audio", "count": 42 },
+        { "name": "Projectors & Displays", "href": "/category/electronics?sub=projectors", "count": 28 },
+        { "name": "Smart Devices & Robotics", "href": "/category/electronics?sub=smart", "count": 24 }
+      ]
+    },
+    {
+      "name": "Home Appliances",
+      "href": "/category/home-appliances",
+      "hasDropdown": true,
+      "dropdownItems": [
+        { "name": "Kitchen & Cooking", "href": "/category/home-appliances?sub=kitchen", "count": 45 },
+        { "name": "Robot Vacuums & Cleaning", "href": "/category/home-appliances?sub=cleaning", "count": 38 },
+        { "name": "Refrigeration & Climate", "href": "/category/home-appliances?sub=climate", "count": 20 }
+      ]
+    },
+    {
+      "name": "Health and Fitness",
+      "href": "/category/health-and-fitness",
+      "hasDropdown": false
+    },
+    {
+      "name": "Blog",
+      "href": "/blog",
+      "hasDropdown": false
+    },
+    {
+      "name": "Contact",
+      "href": "/contact",
+      "hasDropdown": false
+    }
+  ],
+  "footerColumns": {
+    "usefulLinks": {
+      "title": "USEFUL LINKS",
+      "links": [
+        { "name": "Home", "href": "/" },
+        { "name": "About", "href": "/about" },
+        { "name": "Blog", "href": "/blog" },
+        { "name": "Buying Guide", "href": "/category/automotive" },
+        { "name": "Our Process", "href": "/about#method" },
+        { "name": "Contact", "href": "/contact" }
+      ]
+    },
+    "product": {
+      "title": "PRODUCT",
+      "links": [
+        { "name": "Headphone", "href": "/category/electronics" },
+        { "name": "Projector", "href": "/category/electronics" },
+        { "name": "Driving Accessories", "href": "/category/automotive" },
+        { "name": "Lawn and Garden", "href": "/reviews/best-robot-lawn-mower-2025" },
+        { "name": "Vacuum Cleaner", "href": "/category/home-appliances" },
+        { "name": "Car Electronics & GPS", "href": "/category/automotive" }
+      ]
+    },
+    "socialLinks": {
+      "title": "SOCIAL LINKS",
+      "links": [
+        { "name": "Facebook", "href": "https://facebook.com", "external": true },
+        { "name": "Pinterest", "href": "https://pinterest.com", "external": true },
+        { "name": "LinkedIn", "href": "https://linkedin.com", "external": true },
+        { "name": "Vimeo", "href": "https://vimeo.com", "external": true },
+        { "name": "YouTube", "href": "https://youtube.com", "external": true }
+      ]
+    }
+  },
+  "copyright": "©2026 BuyBestForYou. All Rights Reserved.",
+  "contactEmail": "info@buybestforyou.com"
+}

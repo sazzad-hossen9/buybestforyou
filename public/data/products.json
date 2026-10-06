@@ -1,0 +1,381 @@
+[
+  {
+    "id": "scratch-fix-paint-pen",
+    "slug": "scratch-fix-paint-pen",
+    "name": "Dupli-Color Scratch-Fix All-in-1 Exact-Match Paint Pen",
+    "brand": "Dupli-Color",
+    "categorySlug": "automotive",
+    "subcategoryName": "Automotive Parts & Accessories",
+    "priceTier": "Mid",
+    "compositeScore": 4.6,
+    "ratingCategory": "Best overall",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.7,
+      "specMatchToClaims": 4.5,
+      "expertLabCoverage": 4.6,
+      "valueForPriceTier": 4.4
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "Restoring light scratches and chips on a vehicle's exterior. Easy to apply, but check your paint code before you order.",
+    "shortDescription": "A two-in-one pen for light clear-coat scratches and small chips. Easy to apply, not for deep gouges.",
+    "quickVerdict": "Buy it if your scratches are shallow and you want a clean, fast touch-up. Skip it if the metal is showing or you need a pro-level blend.",
+    "paragraphReview": "Our pick for restoring light scratches and chips on a vehicle's exterior. Easy to apply, but check your paint code before you order. The ergonomic barrel design makes precise application straightforward even for beginners.",
+    "pros": [
+      "Dual tip: fine brush for chips, felt tip for hairline scratches",
+      "Dries in minutes and levels cleanly on shallow damage",
+      "Clear-coat pen included, so no separate purchase",
+      "Large colour range with OEM code matching"
+    ],
+    "cons": [
+      "Does not fill deep gouges or exposed metal",
+      "Colour match varies on pearl and metallic finishes",
+      "Cap can dry out if not seated firmly"
+    ],
+    "skipIf": "metal is showing or the scratch covers a wide area needing spray blending",
+    "buyerThemes": [
+      { "theme": "Easy to apply and hides light scratches well", "percentage": 71, "sentiment": "positive" },
+      { "theme": "Colour match close on solid colours", "percentage": 48, "sentiment": "positive" },
+      { "theme": "Weaker results on deep scratches", "percentage": 22, "sentiment": "mixed" },
+      { "theme": "Pen dried out after a few uses", "percentage": 9, "sentiment": "negative" }
+    ],
+    "specs": {
+      "Type": "Dual-tip touch-up pen",
+      "Includes": "Colour pen, clear coat, prep wipe",
+      "Dry time": "20–30 minutes to touch",
+      "Finish": "Gloss",
+      "Colour matching": "OEM paint code",
+      "Best for": "Light scratches, small chips",
+      "Source of specs": "Manufacturer listing, checked Oct 3, 2026"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Daily drivers with light surface scratches, door-edge chips and shopping-cart marks.",
+      "lookElsewhere": "Deep scratches, rust spots, matte or pearlescent finishes. See our full roundup."
+    },
+    "alternatives": [
+      { "title": "TouchUpDirect Platinum Kit", "badge": "Best for deep scratches", "score": 4.4, "tier": "Mid tier", "slug": "touchup-platinum-kit" },
+      { "title": "Rust-Oleum Automotive Touch-Up", "badge": "Best budget", "score": 4.3, "tier": "Budget tier", "slug": "rust-oleum-touchup" },
+      { "title": "ScratchesHappen Complete Kit", "badge": "Best premium", "score": 4.5, "tier": "Premium tier", "slug": "scratcheshappen-kit" }
+    ],
+    "images": [
+      "/images/paint-pen-hero.jpg",
+      "/images/paint-pen-thumb-1.jpg",
+      "/images/paint-pen-thumb-2.jpg",
+      "/images/paint-pen-thumb-3.jpg",
+      "/images/paint-pen-thumb-4.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B00HE66OK8",
+    "updatedDate": "Oct 3, 2026",
+    "readTime": "7 min read",
+    "authorSlug": "marcus-webb"
+  },
+  {
+    "id": "gardena-sileno-minimo",
+    "slug": "gardena-sileno-minimo",
+    "name": "GARDENA 15201-20 SILENO Minimo - Automatic Robotic Lawn Mower",
+    "brand": "GARDENA",
+    "categorySlug": "lawn-and-garden",
+    "subcategoryName": "Robotic Lawn Mowers",
+    "priceTier": "Premium",
+    "compositeScore": 4.6,
+    "ratingCategory": "Best for smaller lawns",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.7,
+      "specMatchToClaims": 4.6,
+      "expertLabCoverage": 4.7,
+      "valueForPriceTier": 4.4
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "tech-savvy homeowners with smaller lawns who want an automatic mowing solution",
+    "shortDescription": "Ultra-quiet automatic robotic mower with SensorCut technology designed for compact and medium suburban lawns.",
+    "quickVerdict": "Superb quiet performer for lawns under 5,400 sq ft. Requires one-time perimeter wire setup, but runs seamlessly rain or shine afterwards.",
+    "paragraphReview": "We picked it for its quiet, smart operation. Perfect for tech-savvy homeowners with smaller lawns who want an automatic mowing solution. Its 57 dBA operating noise level is practically inaudible from a few yards away.",
+    "pros": [
+      "SensorCut system maintains lawn evenly without creating tire ruts",
+      "Whisper-quiet operation at just 57 dBA",
+      "Bluetooth app control allows scheduling up to 10 metres away",
+      "IPX5 waterproof rating allows easy hose cleaning underneath"
+    ],
+    "cons": [
+      "Requires manual boundary wire layout during initial setup",
+      "Bluetooth range is limited compared to Wi-Fi/cellular models"
+    ],
+    "skipIf": "you have a multi-zone lawn larger than 5,400 sq ft or steep slopes exceeding 25%",
+    "buyerThemes": [
+      { "theme": "Almost silent while cutting, can run at night", "percentage": 82, "sentiment": "positive" },
+      { "theme": "Excellent cutting consistency without scalping", "percentage": 74, "sentiment": "positive" },
+      { "theme": "Perimeter wire installation takes several hours", "percentage": 38, "sentiment": "mixed" }
+    ],
+    "specs": {
+      "Cutting area capacity": "Up to 5,400 sq ft (500 m²)",
+      "Sound level": "57 dBA",
+      "Cutting height": "0.8 to 1.8 in (20–45 mm)",
+      "Max incline": "25% (14°)",
+      "Connectivity": "Bluetooth (GARDENA App)",
+      "Battery runtime": "65 mins per charge"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Homeowners with level to mildly sloped lawns up to 500 m² who value quiet operation.",
+      "lookElsewhere": "Acreage properties, lawns with steep terracing, or yards requiring wire-free RTK setup."
+    },
+    "alternatives": [
+      { "title": "Worx Landroid S 20V", "badge": "Best budget", "score": 4.3, "tier": "Budget tier", "slug": "worx-landroid-s" },
+      { "title": "Husqvarna Automower 405X", "badge": "Best cellular", "score": 4.7, "tier": "Premium tier", "slug": "husqvarna-405x" }
+    ],
+    "images": [
+      "/images/gardena-mower.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B08XMSK89M",
+    "updatedDate": "December 21, 2025",
+    "readTime": "9 min read",
+    "authorSlug": "marcus-webb"
+  },
+  {
+    "id": "wire-free-rtk-mower",
+    "slug": "wire-free-rtk-mower",
+    "name": "Robot Lawn Mower NO Wire - 0.9 Acre, Full Band RTK+4-Eye Vision",
+    "brand": "Luba / Mammotion",
+    "categorySlug": "lawn-and-garden",
+    "subcategoryName": "Robotic Lawn Mowers",
+    "priceTier": "Premium",
+    "compositeScore": 4.5,
+    "ratingCategory": "Best wire-free pick",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.5,
+      "specMatchToClaims": 4.6,
+      "expertLabCoverage": 4.6,
+      "valueForPriceTier": 4.3
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "larger lawns where you want to skip the boundary wire",
+    "shortDescription": "Wire-free perimeter navigation with RTK positioning and 4-camera visual obstacle avoidance.",
+    "quickVerdict": "The top wire-free mower for complex yards. Sets up virtual boundaries in the companion app without pegging a single physical wire.",
+    "paragraphReview": "We selected it for its cutting-edge technology, which simplifies lawn care. Virtual boundary mapping through the app removes the biggest headache of traditional robot mowers.",
+    "pros": [
+      "Wire-free installation with automatic satellite lawn mapping",
+      "4-camera vision system for advanced real-time obstacle avoidance",
+      "Manages up to 30 zones with customizable cutting heights",
+      "Weather-resistant with an IPX6 waterproof rating"
+    ],
+    "cons": [
+      "Higher price point compared to perimeter wire models",
+      "Requires clear sky view for RTK base station antenna"
+    ],
+    "skipIf": "you have dense overhanging forest canopy blocking satellite reception",
+    "buyerThemes": [
+      { "theme": "Zero perimeter wire burying is worth every penny", "percentage": 88, "sentiment": "positive" },
+      { "theme": "Impressive obstacle avoidance around toys and trees", "percentage": 76, "sentiment": "positive" },
+      { "theme": "Base station antenna positioning requires experimentation", "percentage": 29, "sentiment": "mixed" }
+    ],
+    "specs": {
+      "Cutting area capacity": "Up to 0.9 Acre (3,600 m²)",
+      "Navigation": "Full-Band RTK GNSS + 3D Vision",
+      "Max incline": "38° (80% slope)",
+      "Cutting width": "15.7 in (400 mm)",
+      "Connectivity": "4G Cellular, Wi-Fi, Bluetooth"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Homeowners with medium to large yards who refuse to bury boundary wires.",
+      "lookElsewhere": "Small rectangular yards where a budget wired mower does the exact same job for a third of the cost."
+    },
+    "alternatives": [
+      { "title": "Segway Navimow H800N", "badge": "Best mid wire-free", "score": 4.4, "tier": "Mid tier", "slug": "segway-navimow" },
+      { "title": "Ecovacs GOAT G1", "badge": "Best beacon-based", "score": 4.3, "tier": "Mid tier", "slug": "ecovacs-goat-g1" }
+    ],
+    "images": [
+      "/images/rtk-mower.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B0CXF1Z88R",
+    "updatedDate": "December 21, 2025",
+    "readTime": "9 min read",
+    "authorSlug": "marcus-webb"
+  },
+  {
+    "id": "vacuum-cleaner-retractable-cord",
+    "slug": "vacuum-cleaner-retractable-cord",
+    "name": "Eureka Whirlwind Bagless Canister Vacuum with Retractable Cord",
+    "brand": "Eureka",
+    "categorySlug": "home-appliances",
+    "subcategoryName": "Vacuum Cleaners",
+    "priceTier": "Mid",
+    "compositeScore": 4.5,
+    "ratingCategory": "Top pick: Vacuum",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.6,
+      "specMatchToClaims": 4.5,
+      "expertLabCoverage": 4.5,
+      "valueForPriceTier": 4.7
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "effortless cleaning with the remarkable convenience of a retractable cord",
+    "shortDescription": "Step into the world of effortless cleaning with the remarkable convenience of a vacuum cleaner with a retractable cord!",
+    "quickVerdict": "A lightweight, powerful canister vacuum that makes winding power cables obsolete.",
+    "paragraphReview": "Delivers outstanding suction across hard floors and low-pile carpets with an automatic cord rewind that operates at the press of a button.",
+    "pros": [
+      "One-touch cord rewind mechanism saves time after every clean",
+      "Lightweight under 8 lbs, easy to carry up stairs",
+      "Washable filter elements with zero replacement bag costs"
+    ],
+    "cons": [
+      "Dust canister capacity is relatively compact",
+      "Hose length requires keeping canister close"
+    ],
+    "buyerThemes": [
+      { "theme": "Cord reel works reliably without jamming", "percentage": 79, "sentiment": "positive" },
+      { "theme": "Remarkably light and nimble", "percentage": 68, "sentiment": "positive" }
+    ],
+    "specs": {
+      "Cord length": "16 ft with auto rewind",
+      "Weight": "8.15 lbs",
+      "Filtration": "Washable HEPA-grade filter",
+      "Bin capacity": "2.5 Litres"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Apartment dwellers and multi-story homes looking for compact corded convenience.",
+      "lookElsewhere": "Large high-pile carpet spaces needing an upright with motorized brush roller."
+    },
+    "alternatives": [],
+    "images": [
+      "/images/vacuum-hero.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B07P82R4V7",
+    "updatedDate": "July 2026",
+    "readTime": "8 min read",
+    "authorSlug": "priya-nair"
+  },
+  {
+    "id": "best-projectors-in-daylight",
+    "slug": "best-projectors-in-daylight",
+    "name": "BenQ TK850i 4K HDR Bright Room DLP Home Theater Projector",
+    "brand": "BenQ",
+    "categorySlug": "electronics",
+    "subcategoryName": "Projectors & Displays",
+    "priceTier": "Premium",
+    "compositeScore": 4.6,
+    "ratingCategory": "Top pick: Projector",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.7,
+      "specMatchToClaims": 4.6,
+      "expertLabCoverage": 4.7,
+      "valueForPriceTier": 4.4
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "Crisp and vibrant daytime viewing with 3000 ANSI lumens",
+    "shortDescription": "Discover the Best Projectors in daylight for Crisp and Vibrant Visuals in bright living spaces.",
+    "quickVerdict": "Unlocks true daytime projection without forcing you to draw heavy blackout curtains.",
+    "paragraphReview": "Combines genuine 4K UHD pixel-shifting with high-output 3000 ANSI lumens and sports motion compensation for daytime sports and movies.",
+    "pros": [
+      "3000 ANSI lumens cuts through ambient living room sunlight",
+      "Dynamic iris preserves rich black levels in dark scenes",
+      "Android TV integrated with Chromecast streaming"
+    ],
+    "cons": [
+      "Cooling fan is audible in high lamp mode",
+      "Noticeable throw distance needed for 120-inch diagonal"
+    ],
+    "buyerThemes": [
+      { "theme": "Shockingly watchable with blinds open during noon", "percentage": 84, "sentiment": "positive" },
+      { "theme": "Crisp 4K sports performance", "percentage": 75, "sentiment": "positive" }
+    ],
+    "specs": {
+      "Brightness": "3000 ANSI Lumens",
+      "Resolution": "4K UHD (3840 x 2160)",
+      "Contrast ratio": "30,000:1",
+      "Projection system": "DLP with HDR-PRO"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Families replacing living room TVs with projection screens in sunny spaces.",
+      "lookElsewhere": "Pitch-black dedicated theater rooms where laser contrast takes priority."
+    },
+    "alternatives": [],
+    "images": [
+      "/images/projector-hero.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B08J3B8637",
+    "updatedDate": "July 2026",
+    "readTime": "8 min read",
+    "authorSlug": "jordan-kim"
+  },
+  {
+    "id": "best-infrared-face-mask",
+    "slug": "best-infrared-face-mask",
+    "name": "CurrentBody Skin 4-in-1 LED Light Therapy Face Mask",
+    "brand": "CurrentBody",
+    "categorySlug": "health-and-fitness",
+    "subcategoryName": "Recovery & Therapy",
+    "priceTier": "Premium",
+    "compositeScore": 4.4,
+    "ratingCategory": "Top pick: Health",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.5,
+      "specMatchToClaims": 4.4,
+      "expertLabCoverage": 4.5,
+      "valueForPriceTier": 4.1
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "at-home skincare treatments to rejuvenate skin, reduce wrinkles, and improve texture",
+    "shortDescription": "Discover the best infrared face mask to rejuvenate your skin, reduce wrinkles, and improve texture. Perfect for at-home skincare treatments.",
+    "quickVerdict": "Clinically supported dual-wavelength flexible silicone mask that delivers noticeable firmness over 8–12 weeks.",
+    "paragraphReview": "Employs red (633nm) and near-infrared (830nm) LED diodes with flexible medical-grade silicone that contours comfortably against facial features.",
+    "pros": [
+      "Dual red and near-infrared wavelengths with uniform coverage",
+      "Flexible, lightweight silicone fits varying face shapes",
+      "Cordless controller rechargeable via USB"
+    ],
+    "cons": [
+      "Requires consistent 10-minute sessions for 6+ weeks to see gains",
+      "Premium investment compared to handheld wands"
+    ],
+    "buyerThemes": [
+      { "theme": "Visible reduction in redness and skin plumping", "percentage": 73, "sentiment": "positive" },
+      { "theme": "Much more comfortable than rigid plastic helmets", "percentage": 69, "sentiment": "positive" }
+    ],
+    "specs": {
+      "Wavelengths": "633nm (Red) & 830nm (Near-Infrared)",
+      "Treatment duration": "10 minutes auto-timer",
+      "Material": "Medical-grade flexible silicone",
+      "Power": "Rechargeable Lithium-ion controller"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Skincare enthusiasts looking for evidence-backed collagen support at home.",
+      "lookElsewhere": "Anyone seeking immediate same-day changes or unable to commit to weekly usage."
+    },
+    "alternatives": [],
+    "images": [
+      "/images/facemask-hero.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B08NPP1C7G",
+    "updatedDate": "July 2026",
+    "readTime": "8 min read",
+    "authorSlug": "sam-okafor"
+  }
+]

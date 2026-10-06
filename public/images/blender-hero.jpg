@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#F8E9EE"/>
+  <circle cx="400" cy="220" r="80" fill="#B23A5C" opacity="0.12"/>
+  <rect x="360" y="180" width="80" height="80" rx="16" fill="#B23A5C" opacity="0.25"/>
+  <circle cx="400" cy="220" r="16" fill="#B23A5C"/>
+  <text x="400" y="340" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="28" font-weight="700" fill="#B23A5C" text-anchor="middle">Blender Food Processor</text>
+  <text x="400" y="375" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="16" font-weight="500" fill="#5B6470" text-anchor="middle">BuyBestForYou · Verified Media</text>
+</svg>

@@ -1,0 +1,110 @@
+{
+  "affiliate-disclosure": {
+    "slug": "affiliate-disclosure",
+    "title": "Affiliate disclosure",
+    "subtitle": "How BuyBestForYou makes money, and why it never changes what we recommend.",
+    "lastUpdated": "October 2026",
+    "showAmazonCallout": true,
+    "amazonCalloutText": "BuyBestForYou.com is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate, we earn from qualifying purchases at no additional cost to you.",
+    "sections": [
+      {
+        "id": "how-we-make-money",
+        "title": "How we make money",
+        "content": "When you click an Amazon link on this site and buy something, we may earn a commission. It costs you nothing extra. Every affiliate link is labelled as such, and a note sits beside each \"Check price\" button."
+      },
+      {
+        "id": "editorial-independence",
+        "title": "Editorial independence",
+        "content": "Affiliate relationships do not determine the order of our recommendations. We review manufacturer specifications, compare practical features, consider suitability for different users and budgets, and clearly explain important limitations. Brands cannot pay for placement, and we do not accept payment for scores."
+      },
+      {
+        "id": "prices-and-availability",
+        "title": "Prices and availability",
+        "content": "Product availability and prices change frequently on online retailers. We display price tiers (Budget, Mid, Premium) rather than static dollar amounts to avoid displaying stale data. Always check the current live price on Amazon before making a buying decision."
+      },
+      {
+        "id": "privacy",
+        "title": "Privacy",
+        "content": "We respect your digital privacy. We do not sell personal browsing information. For full details on cookie tracking, affiliate cookies, and analytical telemetry, please review our dedicated Privacy Policy."
+      },
+      {
+        "id": "questions",
+        "title": "Questions",
+        "content": "If you have questions regarding our affiliate disclosures, editorial guidelines, or advertising relationships, please email info@buybestforyou.com or reach out via our contact form."
+      }
+    ]
+  },
+  "privacy-policy": {
+    "slug": "privacy-policy",
+    "title": "Privacy Policy",
+    "subtitle": "How we handle data, cookies, and outbound retail tracking links.",
+    "lastUpdated": "October 2026",
+    "showAmazonCallout": false,
+    "sections": [
+      {
+        "id": "information-collected",
+        "title": "Information We Collect",
+        "content": "We collect anonymous diagnostic logs and standard analytics metrics to understand which buying guides are most helpful to our readers. We do not collect or store credit card numbers, payment details, or personal home addresses."
+      },
+      {
+        "id": "cookies-and-tracking",
+        "title": "Cookies and Affiliate Tracking",
+        "content": "When you click an affiliate link to Amazon or third-party retailers, an affiliate tracking cookie is placed on your browser by the destination merchant to attribute referral sales."
+      },
+      {
+        "id": "third-party-links",
+        "title": "Third-Party Links",
+        "content": "Our website contains links to external ecommerce destinations. We do not control and are not responsible for the privacy practices of external merchants."
+      },
+      {
+        "id": "contact-privacy",
+        "title": "Contact Regarding Privacy",
+        "content": "For privacy inquiries or data removal requests, email privacy@buybestforyou.com."
+      }
+    ]
+  },
+  "terms": {
+    "slug": "terms",
+    "title": "Terms and Conditions",
+    "subtitle": "Terms of use for accessing BuyBestForYou reviews, guides, and tools.",
+    "lastUpdated": "October 2026",
+    "showAmazonCallout": false,
+    "sections": [
+      {
+        "id": "acceptance-of-terms",
+        "title": "Acceptance of Terms",
+        "content": "By accessing or using BuyBestForYou.com, you agree to comply with and be bound by these Terms and Conditions and our Editorial Policies."
+      },
+      {
+        "id": "informational-purposes",
+        "title": "Informational Purposes Only",
+        "content": "All reviews, ratings, and buying guides are published solely for general informational and educational purposes. Always verify vehicle specifications, electrical compatibility, and safety warnings with product manufacturers."
+      },
+      {
+        "id": "intellectual-property",
+        "title": "Intellectual Property",
+        "content": "All site content, composite scoring algorithms, visual layouts, and graphics are the exclusive property of BuyBestForYou.com."
+      }
+    ]
+  },
+  "disclaimer": {
+    "slug": "disclaimer",
+    "title": "Editorial Disclaimer",
+    "subtitle": "Important notices regarding product testing, scores, and manufacturer specs.",
+    "lastUpdated": "October 2026",
+    "showAmazonCallout": true,
+    "amazonCalloutText": "BuyBestForYou does not claim hands-on physical testing for the products featured on this site unless specifically noted. Our ratings are mathematical composite scores calculated from technical specifications, verified customer feedback, and reputable third-party lab teardowns.",
+    "sections": [
+      {
+        "id": "composite-scores",
+        "title": "Composite Scoring Methodology",
+        "content": "Scores presented on this site are mathematical composites weighted across buyer feedback, manufacturer claim verification, and independent lab data. They are designed as comparative guides rather than absolute guarantees of individual unit performance."
+      },
+      {
+        "id": "pricing-and-stock",
+        "title": "Pricing and Stock Limitations",
+        "content": "We do not represent or warrant that retail prices or stock levels shown on third-party sites match our editorial price tier designations at the precise time of your visit."
+      }
+    ]
+  }
+}

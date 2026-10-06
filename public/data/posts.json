@@ -1,0 +1,220 @@
+[
+  {
+    "slug": "how-to-fix-a-car-scratch-at-home",
+    "title": "How to fix a car scratch at home: a plain-English guide",
+    "subtitle": "Work out how deep the scratch is, pick the right product and avoid the mistakes that make it worse.",
+    "categorySlug": "automotive",
+    "categoryName": "Automotive",
+    "tag": "Automotive · How-to",
+    "excerpt": "Work out how deep the scratch is, pick the right product and avoid the mistakes that make it worse.",
+    "updatedDate": "Oct 3, 2026",
+    "readTimeMinutes": 8,
+    "authorSlug": "marcus-webb",
+    "heroImage": "/images/car-scratch-hero.jpg",
+    "shortAnswer": "Most light scratches only need a touch-up pen and a clear coat. If your fingernail catches in the scratch, it's through the clear coat and needs more than polish.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "check how deep it is",
+        "content": "Run a fingernail across the scratch. If it doesn't catch, it's in the clear coat and polish may remove it. If it catches, you're into the colour layer or deeper."
+      },
+      {
+        "stepNumber": 2,
+        "title": "clean and prep",
+        "content": "Wash the area, dry it fully and wipe with a prep solvent. Paint won't bond to wax or road film."
+      },
+      {
+        "stepNumber": 3,
+        "title": "pick the right product",
+        "content": "For chips and fine scratches a touch-up pen is the quickest fix. See our roundup of the best touch-up paint pens for ranked options."
+      },
+      {
+        "stepNumber": 4,
+        "title": "apply in thin layers",
+        "content": "Dab, don't brush. Let each layer dry, then add clear coat. Thin layers look better than one thick blob."
+      }
+    ],
+    "inlineProduct": {
+      "label": "Our pick · Best overall",
+      "name": "Dupli-Color Scratch-Fix Paint Pen",
+      "score": 4.6,
+      "tier": "Mid price tier",
+      "image": "/images/paint-pen-thumb-1.jpg",
+      "affiliateUrl": "https://www.amazon.com/dp/B00HE66OK8"
+    },
+    "commonMistakes": [
+      "Applying in direct sun or on a hot panel.",
+      "Skipping the clear coat.",
+      "Using the wrong paint code."
+    ],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "how-does-amazon-affiliate-work",
+    "title": "How Does Amazon Affiliate Work? A Simple Guide for Beginners",
+    "subtitle": "Everything you need to know about cookie windows, commission rates, and compliance rules.",
+    "categorySlug": "guides",
+    "categoryName": "Guides",
+    "tag": "Guides",
+    "excerpt": "How the Amazon affiliate program works and how beginners can earn by promoting products.",
+    "updatedDate": "December 2025",
+    "readTimeMinutes": 7,
+    "authorSlug": "jordan-kim",
+    "heroImage": "/images/affiliate-guide-hero.jpg",
+    "shortAnswer": "Amazon Associates allows content creators to earn a commission between 1% and 10% on qualifying purchases made through tracked affiliate links within a 24-hour cookie window.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "understand qualifying purchases",
+        "content": "Customers must click your unique associate tag and add items to their shopping cart within 24 hours."
+      },
+      {
+        "stepNumber": 2,
+        "title": "comply with associate policies",
+        "content": "Never cloak links, never post links in private emails or PDFs, and clearly disclose affiliate partnerships."
+      }
+    ],
+    "commonMistakes": [
+      "Mentioning exact prices that become outdated.",
+      "Failing to provide prominent disclosure statements.",
+      "Encouraging friends and family to make purchases using your link."
+    ],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "best-robot-lawn-mower-guide",
+    "title": "Best Robot Lawn Mower of 2025: Smart, Quiet & Hassle-Free",
+    "subtitle": "The top robot lawn mower of 2025, with intelligent navigation, app management, and silent running.",
+    "categorySlug": "lawn-and-garden",
+    "categoryName": "Lawn and Garden",
+    "tag": "Lawn and Garden",
+    "excerpt": "The top robot lawn mower of 2025, with intelligent navigation, app management, and silent running.",
+    "updatedDate": "December 2025",
+    "readTimeMinutes": 9,
+    "authorSlug": "marcus-webb",
+    "heroImage": "/images/lawn-mower-hero.jpg",
+    "shortAnswer": "Automatic robot mowers maintain turf at a consistent height daily without bagging clippings.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "best-electric-lawn-mower-guide",
+    "title": "Best Electric Lawn Mower | Efficient and Eco-Friendly Choices",
+    "subtitle": "Find the best electric lawn mower for your garden. Compare features and performance.",
+    "categorySlug": "lawn-and-garden",
+    "categoryName": "Lawn and Garden",
+    "tag": "Lawn and Garden",
+    "excerpt": "Find the best electric lawn mower for your garden. Compare features and performance.",
+    "updatedDate": "December 2025",
+    "readTimeMinutes": 8,
+    "authorSlug": "marcus-webb",
+    "heroImage": "/images/electric-mower.jpg",
+    "shortAnswer": "Modern 56V and 80V cordless mowers deliver the torque of 160cc gas engines without fumes or pull-cords.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "wireless-carplay-screen-guide",
+    "title": "Wireless Apple CarPlay Screen: 2025 Top Budget & Premium",
+    "subtitle": "Easy access to apps, navigation, and music without cables.",
+    "categorySlug": "automotive",
+    "categoryName": "Driving Accessories",
+    "tag": "Driving Accessories",
+    "excerpt": "Easy access to apps, navigation, and music without cables.",
+    "updatedDate": "December 2025",
+    "readTimeMinutes": 8,
+    "authorSlug": "marcus-webb",
+    "heroImage": "/images/carplay-hero.jpg",
+    "shortAnswer": "Mountable portable touchscreens upgrade any older car to wireless Apple CarPlay and Android Auto in minutes.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "interactive-robot-toy-kids",
+    "title": "Interactive Fun Cute Robot Toy for Kids – Emotional Desk Buddy",
+    "subtitle": "A smart desk buddy that plays, teaches, and brings joy.",
+    "categorySlug": "electronics",
+    "categoryName": "Electronics",
+    "tag": "Electronics",
+    "excerpt": "A smart desk buddy that plays, teaches, and brings joy.",
+    "updatedDate": "July 2026",
+    "readTimeMinutes": 6,
+    "authorSlug": "jordan-kim",
+    "heroImage": "/images/robot-toy.jpg",
+    "shortAnswer": "Companion desk robots teach programming logic and emotional recognition through friendly feedback.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "the-best-electric-pressure-cooker-guide",
+    "title": "The Best Electric Pressure Cooker 2025: Instant Pot You Still Need",
+    "subtitle": "Top models, cooking functions, and value picks for faster, easier meals.",
+    "categorySlug": "home-appliances",
+    "categoryName": "Home Appliances",
+    "tag": "Home Appliances",
+    "excerpt": "Top models, cooking functions, and value picks for faster, easier meals.",
+    "updatedDate": "July 2026",
+    "readTimeMinutes": 9,
+    "authorSlug": "priya-nair",
+    "heroImage": "/images/pressure-cooker.jpg",
+    "shortAnswer": "Multi-cookers replace slow cookers, rice makers, and pressure pots in one countertop appliance.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "top-5-combo-blender-food-processor-guide",
+    "title": "Top 5 Best Combo Blender Food Processor Models for 2025",
+    "subtitle": "Models that make blending, chopping, and mixing easy and efficient.",
+    "categorySlug": "home-appliances",
+    "categoryName": "Blender",
+    "tag": "Blender",
+    "excerpt": "Models that make blending, chopping, and mixing easy and efficient.",
+    "updatedDate": "July 2026",
+    "readTimeMinutes": 8,
+    "authorSlug": "priya-nair",
+    "heroImage": "/images/blender-hero.jpg",
+    "shortAnswer": "Interchangeable motor bases allow switching between smoothie pitchers and chopping food bowls.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "best-auto-body-stud-welder-dent-puller",
+    "title": "Best Auto Body Stud Welder Dent Puller @ Amazon",
+    "subtitle": "Top models for clean, effective dent repair. Compare features, power, and reliability.",
+    "categorySlug": "automotive",
+    "categoryName": "Automotive",
+    "tag": "Automotive",
+    "excerpt": "Top models for clean, effective dent repair. Compare features, power, and reliability.",
+    "updatedDate": "December 2025",
+    "readTimeMinutes": 7,
+    "authorSlug": "marcus-webb",
+    "heroImage": "/images/welder-hero.jpg",
+    "shortAnswer": "Stud welders weld copper pins to indented sheet metal so slide hammers can pull panels back to shape.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  },
+  {
+    "slug": "best-automatic-drip-coffee-maker",
+    "title": "Best Automatic Drip Coffee Maker: Your Ultimate Buying Guide",
+    "subtitle": "Thermal carafes, precise showerhead saturation, and SCA-certified brew temperatures.",
+    "categorySlug": "home-appliances",
+    "categoryName": "Home Appliances",
+    "tag": "Home Appliances",
+    "excerpt": "Discover drip brewers that consistently hit optimal 200°F water temperatures for cafe-grade extractions.",
+    "updatedDate": "July 2026",
+    "readTimeMinutes": 8,
+    "authorSlug": "priya-nair",
+    "heroImage": "/images/espresso-hero.jpg",
+    "shortAnswer": "A specialty drip machine maintains 195–205°F water temperature for optimal flavor extraction.",
+    "steps": [],
+    "commonMistakes": [],
+    "affiliateDisclosureText": "This post contains affiliate links. We earn a commission on qualifying purchases at no extra cost to you. Read our disclosure."
+  }
+]

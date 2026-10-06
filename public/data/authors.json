@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "marcus-webb",
+    "name": "Marcus Webb",
+    "initials": "MW",
+    "role": "Automotive & Tools Editor",
+    "avatarBg": "#7A4E2D",
+    "persona": "Compiles and verifies manufacturer specs, owner reviews and lab data for car care and accessories. Does not claim hands-on testing of the products covered."
+  },
+  {
+    "slug": "jordan-kim",
+    "name": "Jordan Kim",
+    "initials": "JK",
+    "role": "Electronics Editor",
+    "avatarBg": "#2E6FA3",
+    "persona": "Tracks spec sheets and independent measurements across audio, home projection, and computing peripherals."
+  },
+  {
+    "slug": "priya-nair",
+    "name": "Priya Nair",
+    "initials": "PN",
+    "role": "Home Appliances Editor",
+    "avatarBg": "#3A8452",
+    "persona": "Cross-checks manufacturer claims against thousands of verified owner reports and long-term durability metrics."
+  },
+  {
+    "slug": "sam-okafor",
+    "name": "Sam Okafor",
+    "initials": "SO",
+    "role": "Health & Fitness Editor",
+    "avatarBg": "#B23A5C",
+    "persona": "Reads equipment specs, wellness device teardowns, and physical therapy recovery research so you don't have to."
+  }
+]

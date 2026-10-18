@@ -1,29 +1,30 @@
 export function TrustStrip() {
   const items = [
     {
-      title: 'Research-led product selection',
-      description: 'Specs, buyer ratings and expert coverage, side by side.',
+      title: "Research-led product selection",
+      description: "Specs, buyer ratings and expert coverage, side by side.",
     },
     {
-      title: 'Clear strengths and limitations',
-      description: 'Every pick shows what it does well and where it falls short.',
+      title: "Clear strengths and limitations",
+      description:
+        "Every pick shows what it does well and where it falls short.",
     },
     {
-      title: 'Matched to real use cases',
-      description: 'Recommendations fit different users and budgets.',
+      title: "Matched to real use cases",
+      description: "Recommendations fit different users and budgets.",
     },
     {
-      title: 'Reviewed as products change',
-      description: 'Pages are dated and refreshed when the facts move.',
+      title: "Reviewed as products change",
+      description: "Pages are dated and refreshed when the facts move.",
     },
   ];
 
   return (
-    <section className="border-y border-border bg-surface-muted py-8">
+    <section className="border-y border-border bg-surface-muted py-5 mt-[-7px] mb-6">
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-2">
           {items.map((item, index) => (
-            <div key={index} className="flex items-start gap-3.5">
+            <div key={index} className="flex items-start gap-6 ">
               {/* Checkmark circle icon */}
               <div className="shrink-0 w-6 h-6 rounded-full bg-trust text-white flex items-center justify-center mt-0.5">
                 <svg
@@ -39,8 +40,8 @@ export function TrustStrip() {
                   <path d="M3.5 8.5L6.5 11.5L12.5 4.5" />
                 </svg>
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-[14.5px] font-bold text-ink">
+              <div className="max-w-[270px]">
+                <h4 className="text-[15.5px] font-bold text-ink">
                   {item.title}
                 </h4>
                 <p className="text-[13px] leading-[18px] text-muted">

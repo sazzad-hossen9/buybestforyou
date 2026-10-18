@@ -1,6 +1,6 @@
 interface ScoreRingProps {
   score: number;
-  size?: 'sm' | 'md' | 'lg' | number;
+  size?: "sm" | "md" | "lg" | number;
   strokeWidth?: number;
   maxScore?: number;
   className?: string;
@@ -8,22 +8,30 @@ interface ScoreRingProps {
 
 export function ScoreRing({
   score,
-  size = 'md',
+  size = "lg",
   strokeWidth: customStrokeWidth,
   maxScore = 5.0,
-  className = ''
+  className = "",
 }: ScoreRingProps) {
   // Dimensions based on size
-  const dim = typeof size === 'number' ? size : size === 'sm' ? 44 : size === 'lg' ? 64 : 52;
-  const strokeWidth = customStrokeWidth !== undefined
-    ? customStrokeWidth
-    : typeof size === 'number'
-    ? Math.max(3, Math.round(dim / 12))
-    : size === 'sm'
-    ? 3.5
-    : size === 'lg'
-    ? 5
-    : 4;
+  const dim =
+    typeof size === "number"
+      ? size
+      : size === "sm"
+        ? 44
+        : size === "lg"
+          ? 64
+          : 52;
+  const strokeWidth =
+    customStrokeWidth !== undefined
+      ? customStrokeWidth
+      : typeof size === "number"
+        ? Math.max(3, Math.round(dim / 12))
+        : size === "sm"
+          ? 3.5
+          : size === "lg"
+            ? 5
+            : 4;
   const radius = (dim - strokeWidth * 2) / 2;
   const circumference = 2 * Math.PI * radius;
 
@@ -31,8 +39,8 @@ export function ScoreRing({
   const percent = Math.min(Math.max(score / maxScore, 0), 1);
   const strokeDashoffset = circumference - percent * circumference;
 
-  const fontSize = dim < 46 ? 'text-[14px]' : dim >= 60 ? 'text-[22px]' : 'text-[17px]';
-
+  const fontSize =
+    dim < 46 ? "text-[14px]" : dim >= 60 ? "text-[22px]" : "text-[17px]";
 
   return (
     <div

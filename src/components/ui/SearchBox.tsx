@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import type { SearchIndexItem } from '@/types';
+import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import type { SearchIndexItem } from "@/types";
 
 interface SearchBoxProps {
   placeholder?: string;
@@ -14,11 +14,11 @@ interface SearchBoxProps {
 }
 
 export function SearchBox({
-  placeholder = 'What are you shopping for? e.g. paint pen',
-  initialQuery = '',
+  placeholder = "What are you shopping for? e.g. paint pen",
+  initialQuery = "",
   autoFocus = false,
   onSelect,
-  className = ''
+  className = "",
 }: SearchBoxProps) {
   const router = useRouter();
   const [query, setQuery] = useState(initialQuery);
@@ -31,32 +31,35 @@ export function SearchBox({
 
   // Load search index once on client
   useEffect(() => {
-    fetch('/data/search-index.json')
+    fetch("/data/search-index.json")
       .then((res) => res.json())
       .then((data: SearchIndexItem[]) => setIndexData(data))
-      .catch((err) => console.error('Failed to load search index', err));
+      .catch((err) => console.error("Failed to load search index", err));
   }, []);
 
   // Debounced search logic (300ms)
   useEffect(() => {
-    const handler = setTimeout(() => {
-      if (!query.trim()) {
-        setResults([]);
-        setIsOpen(false);
-        return;
-      }
+    const handler = setTimeout(
+      () => {
+        if (!query.trim()) {
+          setResults([]);
+          setIsOpen(false);
+          return;
+        }
 
-      const q = query.toLowerCase().trim();
-      const matched = indexData.filter(
-        (item) =>
-          item.title.toLowerCase().includes(q) ||
-          item.categoryName.toLowerCase().includes(q) ||
-          item.excerpt.toLowerCase().includes(q)
-      );
-      setResults(matched.slice(0, 6));
-      setIsOpen(true);
-      setSelectedIndex(-1);
-    }, query.trim() ? 300 : 0);
+        const q = query.toLowerCase().trim();
+        const matched = indexData.filter(
+          (item) =>
+            item.title.toLowerCase().includes(q) ||
+            item.categoryName.toLowerCase().includes(q) ||
+            item.excerpt.toLowerCase().includes(q),
+        );
+        setResults(matched.slice(0, 6));
+        setIsOpen(true);
+        setSelectedIndex(-1);
+      },
+      query.trim() ? 300 : 0,
+    );
 
     return () => clearTimeout(handler);
   }, [query, indexData]);
@@ -64,12 +67,15 @@ export function SearchBox({
   // Click outside to close
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -81,16 +87,20 @@ export function SearchBox({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       setIsOpen(false);
       inputRef.current?.blur();
-    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === "ArrowDown") {
       e.preventDefault();
       setSelectedIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
-    } else if (e.key === 'Enter' && selectedIndex >= 0 && results[selectedIndex]) {
+    } else if (
+      e.key === "Enter" &&
+      selectedIndex >= 0 &&
+      results[selectedIndex]
+    ) {
       e.preventDefault();
       setIsOpen(false);
       if (onSelect) onSelect();
@@ -134,12 +144,14 @@ export function SearchBox({
                     if (onSelect) onSelect();
                   }}
                   className={`flex items-start gap-3 px-4 py-3 hover:bg-surface-muted transition-colors text-left ${
-                    selectedIndex === idx ? 'bg-surface-muted' : ''
+                    selectedIndex === idx ? "bg-surface-muted" : ""
                   }`}
                 >
                   <span
                     className="w-2.5 h-2.5 rounded-full mt-1.5 shrink-0"
-                    style={{ backgroundColor: item.categoryDot || 'var(--trust)' }}
+                    style={{
+                      backgroundColor: item.categoryDot || "var(--trust)",
+                    }}
                   />
                   <div className="flex-1 min-w-0">
                     <p className="text-[length:var(--fs-caption)] leading-[var(--lh-caption)] font-bold text-ink truncate">
@@ -168,7 +180,8 @@ export function SearchBox({
             </div>
           ) : (
             <div className="px-4 py-6 text-center text-muted text-[14px]">
-              No results found for &quot;<span className="font-semibold">{query}</span>&quot;
+              No results found for &quot;
+              <span className="font-semibold">{query}</span>&quot;
             </div>
           )}
         </div>

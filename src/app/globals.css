@@ -3,54 +3,54 @@
 
 :root {
   /* Colors */
-  --ink: #1A1D21;
-  --surface: #FFFFFF;
-  --surface-muted: #F6F7F9;
-  --border: #E4E7EB;
-  --border-input: #8A929C;
+  --ink: #1a1d21;
+  --surface: #ffffff;
+  --surface-muted: #f6f7f9;
+  --border: #e4e7eb;
+  --border-input: #8a929c;
 
-  --cta: #B84A14;
-  --cta-hover: #9E3F10;
-  --muted: #5B6470;
-  --trust: #2B5D7C;
-  --on-ink: #B4BBC4;
-  --positive: #007A58;
-  --negative: #B34E00;
-  --score: #009E73;
-  --star: #F5A623;
+  --cta: #b84a14;
+  --cta-hover: #9e3f10;
+  --muted: #5b6470;
+  --trust: #2b5d7c;
+  --on-ink: #b4bbc4;
+  --positive: #007a58;
+  --negative: #b34e00;
+  --score: #009e73;
+  --star: #f5a623;
 
   /* Category tints */
-  --tint-auto-bg: #F4EDE7;
-  --tint-auto-dot: #7A4E2D;
-  --tint-auto-border: #E6DDD5;
+  --tint-auto-bg: #f4ede7;
+  --tint-auto-dot: #7a4e2d;
+  --tint-auto-border: #e6ddd5;
 
-  --tint-elec-bg: #E9F1F8;
-  --tint-elec-dot: #2E6FA3;
-  --tint-elec-border: #D6E4F0;
+  --tint-elec-bg: #e9f1f8;
+  --tint-elec-dot: #2e6fa3;
+  --tint-elec-border: #d6e4f0;
 
-  --tint-home-bg: #E8F2EB;
-  --tint-home-dot: #3A8452;
-  --tint-home-border: #D3E5D8;
+  --tint-home-bg: #e8f2eb;
+  --tint-home-dot: #3a8452;
+  --tint-home-border: #d3e5d8;
 
-  --tint-health-bg: #F8E9EE;
-  --tint-health-dot: #B23A5C;
-  --tint-health-border: #F0D5DF;
+  --tint-health-bg: #f8e9ee;
+  --tint-health-dot: #b23a5c;
+  --tint-health-border: #f0d5df;
 
-  --tint-trust-bg: #E6EFF4;
-  --tint-trust-dot: #2B5D7C;
-  --tint-trust-border: #D3E1EA;
+  --tint-trust-bg: #e6eff4;
+  --tint-trust-dot: #2b5d7c;
+  --tint-trust-border: #d3e1ea;
 
-  --tint-lawn-bg: #E8F2EB;
-  --tint-lawn-dot: #3A8452;
-  --tint-lawn-border: #D3E5D8;
+  --tint-lawn-bg: #e8f2eb;
+  --tint-lawn-dot: #3a8452;
+  --tint-lawn-border: #d3e5d8;
 
-  --pros-bg: #E8F2EB;
-  --cons-bg: #FBEDE3;
+  --pros-bg: #e8f2eb;
+  --cons-bg: #fbede3;
 
   /* Additional design tokens */
-  --nav-active: #E0703A;
-  --footer-divider: #3A4048;
-  --border-light: #E9ECEF;
+  --nav-active: #e0703a;
+  --footer-divider: #3a4048;
+  --border-light: #e9ecef;
 
   /* Radii */
   --r-input: 12px;
@@ -64,7 +64,8 @@
   /* Shadows */
   --sh-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
   --sh-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --sh-dropdown: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --sh-dropdown:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
   /* Layout & Component Sizes */
   --header-height: 72px;
@@ -80,7 +81,7 @@
   --score-ring-size: 72px;
 
   /* Type base desktop values (measured from design) */
-  --fs-display-base: 64px;
+  --fs-display-base: 60px;
   --lh-display-base: 65px;
   --ls-display: -0.025em;
 
@@ -88,19 +89,19 @@
   --lh-h1-base: 60px;
   --ls-h1: -0.02em;
 
-  --fs-h2-base: 40px;
-  --lh-h2-base: 44px;
+  --fs-h2-base: 41px;
+  --lh-h2-base: 45px;
   --ls-h2: -0.015em;
 
-  --fs-h3-base: 24px;
+  --fs-h3-base: 20px;
   --lh-h3-base: 30px;
   --ls-h3: -0.01em;
 
   --fs-subhero-base: 20px;
   --lh-subhero-base: 30px;
 
-  --fs-body-lg-base: 18px;
-  --lh-body-lg-base: 28px;
+  --fs-body-lg-base: 20px;
+  --lh-body-lg-base: 30px;
 
   /* Specific fixed typography tokens for exact design matches */
   --fs-17: 17px;
@@ -118,7 +119,7 @@
   --fs-13: 13px;
   --lh-13: 18px;
 
-  --fs-eyebrow: 12px;
+  --fs-eyebrow: 14px;
   --lh-eyebrow: 16px;
   --ls-eyebrow: 0.08em;
 
@@ -223,14 +224,17 @@
   --color-border-light: var(--border-light);
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: clip;
   color: var(--ink);
 }
 
 body {
-  --font-stack: var(--font-body), "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+  --font-stack:
+    "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, Arial,
+    sans-serif;
   font-family: var(--font-stack);
   background-color: var(--surface);
   color: var(--ink);

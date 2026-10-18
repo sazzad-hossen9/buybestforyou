@@ -7,8 +7,8 @@ export function EditorPickCard() {
   return (
     <div className="bg-surface border border-border rounded-[var(--r-card-feature)] p-5 shadow-[var(--sh-card-hover)] relative w-full">
       {/* Top Left Badge */}
-      <div className="absolute top-4 left-4 z-10">
-        <span className="inline-flex items-center px-3.5 py-1 rounded-full text-[12.5px] font-semibold bg-ink text-white whitespace-nowrap">
+      <div className="absolute top-9 left-8 z-10">
+        <span className="inline-flex items-center px-4 py-1 rounded-full text-[12.5px] font-semibold bg-ink text-white whitespace-nowrap">
           Editor&apos;s pick
         </span>
       </div>

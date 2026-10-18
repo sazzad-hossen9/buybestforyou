@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { SafeImage } from '@/components/ui/SafeImage';
-import type { Category } from '@/types';
+import Link from "next/link";
+import { SafeImage } from "@/components/ui/SafeImage";
+import type { Category } from "@/types";
 
 interface CategoryCardsProps {
   categories: Category[];
@@ -16,8 +16,10 @@ export function CategoryCards({ categories }: CategoryCardsProps) {
         {/* Section Header */}
         <div className="flex items-end justify-between mb-8">
           <div>
-            <p className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] font-bold uppercase tracking-[0.08em] text-muted mb-1">BROWSE</p>
-            <h2 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold tracking-tight text-ink">
+            <p className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] font-bold uppercase tracking-[0.08em] text-muted mb-1">
+              BROWSE
+            </p>
+            <h2 className=" mt-3 mb-1.7 text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold tracking-tight text-ink">
               Start with what you need
             </h2>
           </div>
@@ -30,7 +32,7 @@ export function CategoryCards({ categories }: CategoryCardsProps) {
         </div>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-between gap-5 ">
           {displayCats.map((cat) => (
             <Link
               key={cat.slug}
@@ -76,12 +78,15 @@ export function CategoryCards({ categories }: CategoryCardsProps) {
                 {/* Bottom Metadata */}
                 <div className="mt-auto">
                   <p className="text-[13px] leading-[19px] text-muted mb-7">
-                    <span className="font-semibold text-ink">{cat.reviewCount} reviews</span>
-                    {cat.mostSearched.length > 0 && ` · Most searched: ${cat.mostSearched[0]}`}
+                    <span className="font-semibold text-ink">
+                      {cat.reviewCount} reviews
+                    </span>
+                    {cat.mostSearched.length > 0 &&
+                      ` · Most searched: ${cat.mostSearched[0]}`}
                   </p>
-                  <span className="inline-flex items-center text-[13.5px] font-bold text-ink group-hover:text-cta transition-colors">
-                    View category →
-                  </span>
+                  <div className="flex items-center text-[13.5px] justify-between  font-bold text-ink group-hover:text-cta transition-colors">
+                    View category <div>→</div>
+                  </div>
                 </div>
               </div>
             </Link>

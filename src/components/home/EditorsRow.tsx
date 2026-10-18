@@ -1,4 +1,4 @@
-import type { Author } from '@/types';
+import type { Author } from "@/types";
 
 interface EditorsRowProps {
   authors: Author[];
@@ -11,10 +11,12 @@ export function EditorsRow({ authors }: EditorsRowProps) {
         {/* Section Header */}
         <div className="max-w-2xl mb-8">
           <h2 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold tracking-tight text-ink mb-2">
-            Who is behind each category
+            Who is behind each category span
           </h2>
           <p className="text-[length:var(--fs-body)] leading-[var(--lh-body)] text-muted">
-            Every guide has a named editor. They compile and verify specs, owner reviews and lab data from published sources. They don&apos;t claim hands-on testing they didn&apos;t do.
+            Every guide has a named editor. They compile and verify specs, owner
+            reviews and lab data from published sources. They don&apos;t claim
+            hands-on testing they didn&apos;t do.
           </p>
         </div>
 

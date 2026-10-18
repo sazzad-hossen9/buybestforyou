@@ -12,7 +12,7 @@ export function HeaderSearchTrigger() {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open search input"
-        className="p-2 text-white/90 hover:text-white rounded-full hover:bg-white/10 transition-colors focus:outline-none"
+        className="w-[34px] h-[34px] inline-flex items-center justify-center text-white hover:text-cta rounded-full hover:bg-footer-divider transition-colors focus:outline-none"
       >
         <svg
           width="20"

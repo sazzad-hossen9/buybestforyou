@@ -44,29 +44,31 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   ];
 
   return (
-    <div className="bg-[#F6F7F9] min-h-screen pb-16">
-      <div className="bg-white border-b border-[#E4E7EB] py-3">
-        <div className="container-page">
+    <div className="bg-surface-muted min-h-screen pb-16">
+      <div className="bg-white border-b border-border py-3">
+        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16">
           <Breadcrumb items={breadcrumbs} />
         </div>
       </div>
 
-      <main className="container-page py-10 lg:py-14 max-w-4xl">
+      <main className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-16 py-10 lg:py-14">
         <div className="mb-8">
-          <h1 className="h-1 mb-3">
+          <h1 className="text-[length:var(--fs-h1)] leading-[var(--lh-h1)] tracking-[var(--ls-h1)] font-extrabold text-ink tracking-tight mb-3">
             Search results
           </h1>
-          <p className="text-body text-[#5B6470] mb-6">
+          <p className="text-[length:var(--fs-body)] leading-[var(--lh-body)] text-muted mb-6">
             {query ? (
               <>
-                Found <span className="font-bold text-[#1A1D21]">{results.length}</span> {results.length === 1 ? 'match' : 'matches'} for &ldquo;<span className="font-semibold text-[#1A1D21]">{q}</span>&rdquo;
+                Found <span className="font-bold text-ink">{results.length}</span> {results.length === 1 ? 'match' : 'matches'} for &ldquo;<span className="font-semibold text-ink">{q}</span>&rdquo;
               </>
             ) : (
               'Enter a keyword or product name to search across all guides and reviews.'
             )}
           </p>
 
-          <SearchBox initialQuery={q} placeholder="Search guides, products, and categories..." />
+          <div className="w-full max-w-[560px]">
+            <SearchBox initialQuery={q} placeholder="Search guides, products, and categories..." />
+          </div>
         </div>
 
         {results.length > 0 ? (
@@ -74,41 +76,41 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             {results.map((item) => (
               <div
                 key={item.id}
-                className="card bg-white border border-[#E4E7EB] rounded-[16px] p-5 hover:border-[#8A929C] transition-all shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                className="bg-white border border-border rounded-[var(--r-card)] p-5 hover:border-border-input transition-all shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span
                       className="w-2.5 h-2.5 rounded-full"
-                      style={{ backgroundColor: item.categoryDot || '#2B5D7C' }}
+                      style={{ backgroundColor: item.categoryDot || 'var(--trust)' }}
                     />
-                    <span className="text-[12px] font-bold text-[#5B6470] uppercase">
+                    <span className="text-[12px] font-bold text-muted uppercase">
                       {item.categoryName}
                     </span>
-                    <span className="text-neutral-300">•</span>
-                    <span className="text-[11px] font-semibold text-[#2B5D7C] bg-[#E9F1F8] px-2 py-0.5 rounded-full uppercase">
+                    <span className="text-muted">•</span>
+                    <span className="text-[11px] font-semibold text-trust bg-tint-trust-bg px-2 py-0.5 rounded-full uppercase">
                       {item.type}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-[18px] text-[#1A1D21] hover:text-[#B84A14] transition-colors mb-1.5">
+                  <h3 className="font-bold text-[18px] text-ink hover:text-cta transition-colors mb-1.5">
                     <Link href={item.url}>
                       {item.title}
                     </Link>
                   </h3>
 
-                  <p className="text-[14px] leading-[22px] text-[#5B6470] line-clamp-2">
+                  <p className="text-[14px] leading-[22px] text-muted line-clamp-2">
                     {item.excerpt}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-neutral-100 w-full sm:w-auto justify-between sm:justify-end">
+                <div className="flex items-center gap-4 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-border w-full sm:w-auto justify-between sm:justify-end">
                   {item.score && (
                     <ScoreRing score={item.score} size={42} strokeWidth={3.5} />
                   )}
                   <Link
                     href={item.url}
-                    className="btn-secondary text-[13px] py-1.5 px-3 flex items-center gap-1 font-semibold"
+                    className="rounded-full border border-border bg-white px-3 py-1.5 text-[13px] font-semibold text-ink hover:bg-surface-muted transition-colors flex items-center gap-1"
                   >
                     <span>View</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -118,14 +120,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             ))}
           </div>
         ) : query ? (
-          <div className="bg-white border border-[#E4E7EB] rounded-[16px] p-10 text-center">
-            <div className="w-12 h-12 rounded-full bg-neutral-100 text-[#8A929C] flex items-center justify-center mx-auto mb-3">
+          <div className="bg-white border border-border rounded-[var(--r-card)] p-10 text-center">
+            <div className="w-12 h-12 rounded-full bg-surface-muted text-border-input flex items-center justify-center mx-auto mb-3">
               <Search className="w-6 h-6" />
             </div>
-            <h3 className="text-[18px] font-bold text-[#1A1D21] mb-2">
+            <h3 className="text-[18px] font-bold text-ink mb-2">
               No matching results found
             </h3>
-            <p className="text-[14px] text-[#5B6470] mb-6 max-w-md mx-auto">
+            <p className="text-[14px] text-muted mb-6 max-w-md mx-auto">
               We couldn’t find anything matching &ldquo;{q}&rdquo;. Try browsing one of our main categories below:
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
@@ -133,7 +135,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 <Link
                   key={cat.slug}
                   href={`/category/${cat.slug}`}
-                  className="chip-category bg-neutral-50 hover:bg-neutral-100 border-[#E4E7EB]"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-surface-muted text-ink hover:bg-border-light text-[13px] font-medium transition-colors"
                 >
                   <span
                     className="w-2 h-2 rounded-full"
@@ -145,9 +147,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             </div>
           </div>
         ) : (
-          <div className="bg-white border border-[#E4E7EB] rounded-[16px] p-8 text-center">
-            <FileText className="w-10 h-10 text-[#8A929C] mx-auto mb-3" />
-            <h3 className="text-[16px] font-bold text-[#1A1D21] mb-1">
+          <div className="bg-white border border-border rounded-[var(--r-card)] p-8 text-center">
+            <FileText className="w-10 h-10 text-border-input mx-auto mb-3" />
+            <h3 className="text-[16px] font-bold text-ink mb-1">
               Popular searches
             </h3>
             <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
@@ -155,7 +157,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 <Link
                   key={term}
                   href={`/search?q=${encodeURIComponent(term)}`}
-                  className="px-3 py-1.5 rounded-full text-[13px] font-medium bg-[#F6F7F9] text-[#1A1D21] hover:bg-neutral-200"
+                  className="px-3 py-1.5 rounded-full text-[13px] font-medium bg-surface-muted text-ink hover:bg-border-light"
                 >
                   {term}
                 </Link>

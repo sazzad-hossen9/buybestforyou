@@ -94,6 +94,9 @@ export interface Product {
     expertLabCoverage: number;
     valueForPriceTier: number;
   };
+  tableName?: string;
+  shortName?: string;
+  bestForShort?: string;
   bestFor: string;
   shortDescription: string;
   quickVerdict: string;

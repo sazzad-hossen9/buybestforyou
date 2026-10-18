@@ -17,15 +17,16 @@ export function SafeImage({
 }: SafeImageProps) {
   const [hasError, setHasError] = useState(false);
 
-  const resolvedSrc = typeof src === 'string' && src.startsWith('/images/') && src.endsWith('.jpg')
+  // Fallback to svg stub if jpg fails to load
+  const resolvedFallback = typeof src === 'string' && src.startsWith('/images/') && src.endsWith('.jpg')
     ? src.replace('.jpg', '.svg')
-    : src;
+    : fallbackSrc;
 
   return (
     <Image
       {...props}
       unoptimized={unoptimized}
-      src={hasError ? fallbackSrc : resolvedSrc}
+      src={hasError ? resolvedFallback : src}
       alt={alt || 'Product or category visual representation'}
       className={className}
       onError={() => {

@@ -1,6 +1,4 @@
-import { ScoreRing } from '@/components/ui/ScoreRing';
-import { AffiliateLink } from '@/components/ui/AffiliateLink';
-import { ExternalLink, ArrowDown } from 'lucide-react';
+import Link from 'next/link';
 import type { QuickAnswerPick, Product } from '@/types';
 
 interface QuickAnswerProps {
@@ -9,75 +7,64 @@ interface QuickAnswerProps {
   products: Product[];
 }
 
-export function QuickAnswer({ summary, picks, products }: QuickAnswerProps) {
+export function QuickAnswer({ summary, picks }: QuickAnswerProps) {
   return (
-    <section id="the-quick-answer" className="card-feature bg-white border border-[#E4E7EB] rounded-[20px] p-6 lg:p-8 mb-10 scroll-mt-24 shadow-sm">
-      <div className="flex items-center gap-2 mb-3">
-        <span className="w-2 h-2 rounded-full bg-[#B84A14]"></span>
-        <span className="eyebrow text-[#B84A14]">THE QUICK ANSWER</span>
-      </div>
+    <section
+      id="quick-answer"
+      className="bg-tint-light border border-border rounded-[var(--r-card-feature)] p-6 mb-10 scroll-mt-24"
+    >
+      <span className="text-[12.5px] font-bold uppercase tracking-wider text-trust block mb-3">
+        QUICK ANSWER
+      </span>
 
-      <p className="text-[16px] leading-[26px] text-[#1A1D21] mb-6">
+      <p className="text-[16px] leading-[26px] text-ink mb-6">
         {summary}
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
         {picks.map((pick, idx) => {
-          const product = products.find((p) => p.id === pick.productId || p.slug === pick.productId);
-          const affiliateUrl = product?.affiliateUrl || 'https://www.amazon.com';
           const anchorId = `product-${idx + 1}`;
 
           return (
             <div
               key={pick.productId}
-              className="border border-[#E4E7EB] rounded-[16px] p-5 bg-[#F6F7F9] flex flex-col justify-between hover:border-[#8A929C] transition-all"
+              className="bg-white border border-border rounded-[var(--r-card)] p-5 flex flex-col justify-between shadow-xs"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[12px] font-bold bg-[#1A1D21] text-white">
-                    {pick.badge}
-                  </span>
-                  <span className="text-[12px] font-semibold text-[#5B6470] bg-white px-2 py-0.5 rounded-full border border-[#E4E7EB]">
-                    {pick.tier} tier
-                  </span>
-                </div>
+                <span className="text-[13px] font-bold text-positive block mb-1">
+                  {pick.badge}
+                </span>
 
-                <div className="flex items-start justify-between gap-3 my-3">
-                  <h3 className="text-[18px] font-bold text-[#1A1D21] leading-snug">
-                    <a href={`#${anchorId}`} className="hover:text-[#B84A14] transition-colors">
-                      {pick.title}
-                    </a>
-                  </h3>
-                  <div className="shrink-0">
-                    <ScoreRing score={pick.score} size={46} strokeWidth={4} />
-                  </div>
-                </div>
+                <h3 className="text-[17px] sm:text-[18px] font-bold text-ink leading-snug mb-2">
+                  <a href={`#${anchorId}`} className="hover:text-cta transition-colors">
+                    {pick.title}
+                  </a>
+                </h3>
 
-                <p className="text-[14px] leading-[22px] text-[#5B6470] mb-5">
-                  {pick.summary}
-                </p>
+                <div className="flex items-center gap-1.5 text-[14px] text-muted mb-5">
+                  <span className="text-star font-bold text-[15px]">★</span>
+                  <span className="font-bold text-ink">{pick.score.toFixed(1)}</span>
+                  <span>composite · {pick.tier}</span>
+                </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-2 border-t border-[#E4E7EB]">
-                <AffiliateLink
-                  href={affiliateUrl}
-                  className="btn-cta text-[14px] py-2 px-4 justify-center flex-1 flex items-center gap-1.5"
-                >
-                  <span>Check price</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </AffiliateLink>
-                <a
-                  href={`#${anchorId}`}
-                  className="btn-secondary text-[13px] py-2 px-3 text-center flex items-center justify-center gap-1 hover:bg-neutral-100"
-                >
-                  <span>Jump to review</span>
-                  <ArrowDown className="w-3.5 h-3.5" />
-                </a>
-              </div>
+              <a
+                href={`#${anchorId}`}
+                className="w-full text-center py-2.5 px-4 text-[15px] font-semibold block rounded-full bg-cta text-white hover:bg-cta-hover transition-colors"
+              >
+                See why
+              </a>
             </div>
           );
         })}
       </div>
+
+      <p className="text-[12.5px] text-muted leading-relaxed">
+        Affiliate links. Scores are composites of verified buyer ratings, spec match and expert coverage, not our own lab tests.{' '}
+        <Link href="/about#method" className="text-trust hover:underline font-medium">
+          How we score
+        </Link>
+      </p>
     </section>
   );
 }

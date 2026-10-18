@@ -52,7 +52,7 @@ export function ScoreRing({
           cy={dim / 2}
           r={radius}
           fill="transparent"
-          stroke="#E4E7EB"
+          stroke="var(--border)"
           strokeWidth={strokeWidth}
         />
         {/* Progress Fill */}
@@ -61,7 +61,7 @@ export function ScoreRing({
           cy={dim / 2}
           r={radius}
           fill="transparent"
-          stroke="#009E73"
+          stroke="var(--score)"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
@@ -70,7 +70,7 @@ export function ScoreRing({
       </svg>
       {/* Inner Score Text */}
       <span
-        className={`absolute font-extrabold text-[#1A1D21] tracking-tight ${fontSize}`}
+        className={`absolute font-extrabold text-ink tracking-tight ${fontSize}`}
       >
         {score.toFixed(1)}
       </span>

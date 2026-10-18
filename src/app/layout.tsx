@@ -10,7 +10,7 @@ const openSans = Open_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
-  variable: '--font-sans',
+  variable: '--font-body',
 });
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${openSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-[#1A1D21] font-sans selection:bg-[#B84A14] selection:text-white">
+      <body className="min-h-full flex flex-col bg-surface text-ink font-sans selection:bg-cta selection:text-white">
         <Header />
         <DisclosureBar />
         <main className="flex-1">{children}</main>

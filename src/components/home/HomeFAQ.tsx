@@ -7,10 +7,14 @@ interface HomeFAQProps {
 
 export function HomeFAQ({ faqs }: HomeFAQProps) {
   return (
-    <section className="section bg-white">
-      <div className="container-page max-w-4xl">
-        <h2 className="h-2 text-center mb-8">Questions people ask us</h2>
-        <Accordion items={faqs} />
+    <section className="py-[var(--section-py)] bg-white">
+      <div className="mx-auto w-full max-w-[var(--container-max)] px-[var(--container-pad)]">
+        <div className="max-w-4xl">
+          <h2 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold text-ink text-left mb-8">
+            Questions people ask us
+          </h2>
+          <Accordion items={faqs} />
+        </div>
       </div>
     </section>
   );

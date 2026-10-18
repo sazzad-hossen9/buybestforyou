@@ -70,7 +70,8 @@
         { "name": "Blog", "href": "/blog" },
         { "name": "Buying Guide", "href": "/category/automotive" },
         { "name": "Our Process", "href": "/about#method" },
-        { "name": "Contact", "href": "/contact" }
+        { "name": "Contact", "href": "/contact" },
+        { "name": "Image credits", "href": "/image-credits" }
       ]
     },
     "product": {

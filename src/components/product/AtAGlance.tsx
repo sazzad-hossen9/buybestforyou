@@ -1,6 +1,4 @@
-import { ScoreRing } from '@/components/ui/ScoreRing';
 import { AffiliateLink } from '@/components/ui/AffiliateLink';
-import { ExternalLink, Check } from 'lucide-react';
 import type { Product } from '@/types';
 
 interface AtAGlanceProps {
@@ -8,45 +6,56 @@ interface AtAGlanceProps {
 }
 
 export function AtAGlance({ product }: AtAGlanceProps) {
-  return (
-    <div className="bg-white border border-[#E4E7EB] rounded-[16px] p-6 shadow-xs sticky top-24">
-      <div className="eyebrow text-[#5B6470] mb-3 font-bold">AT A GLANCE</div>
+  const displayName = product.shortName || product.name.replace(' Review', '');
 
-      <div className="flex items-center gap-3 mb-4 pb-4 border-b border-[#E4E7EB]">
-        <ScoreRing score={product.compositeScore} size={54} strokeWidth={4.5} />
-        <div>
-          <div className="font-bold text-[16px] text-[#1A1D21] leading-tight">
-            {product.brand} {product.name.split(' ')[0]}
-          </div>
-          <div className="text-[12px] font-semibold text-[#007A58]">
-            {product.ratingCategory}
-          </div>
-          <div className="text-[12px] text-[#5B6470]">
-            {product.priceTier} tier
-          </div>
+  return (
+    <div className="bg-white border border-border rounded-[var(--r-card)] p-6 shadow-[var(--sh-card)] sticky top-[calc(var(--header-total-height,109px)+1.5rem)]">
+      {/* Eyebrow */}
+      <div className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] text-muted mb-2 font-bold uppercase">
+        AT A GLANCE
+      </div>
+
+      {/* Title */}
+      <h3 className="font-bold text-[18px] leading-[24px] text-ink mb-4">
+        {displayName}
+      </h3>
+
+      {/* Large Score + Inputs */}
+      <div className="flex items-baseline gap-2.5 mb-5">
+        <span className="text-[36px] leading-[40px] font-extrabold text-ink tracking-tight">
+          {product.compositeScore.toFixed(1)}
+        </span>
+        <div className="text-[12px] leading-[16px] text-muted">
+          <div>composite</div>
+          <div>of 4 inputs</div>
         </div>
       </div>
 
-      {/* Top 3 Pros Checklist */}
-      <ul className="space-y-2 mb-6 text-[13px] text-[#1A1D21]">
-        {product.pros.slice(0, 3).map((pro, idx) => (
-          <li key={idx} className="flex items-start gap-2">
-            <Check className="w-4 h-4 text-[#007A58] shrink-0 mt-0.5" />
-            <span className="line-clamp-2">{pro}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Action */}
+      {/* Primary CTA */}
       <AffiliateLink
         href={product.affiliateUrl}
-        className="btn-cta text-[14px] w-full py-2.5 px-4 flex items-center justify-center gap-2 mb-2"
+        className="inline-flex items-center justify-center rounded-full bg-cta px-5 py-3 text-[15px] font-semibold text-white hover:bg-cta-hover transition-colors w-full mb-2 shadow-xs cursor-pointer"
       >
-        <span>Check price on Amazon</span>
-        <ExternalLink className="w-3.5 h-3.5" />
+        Check price on Amazon
       </AffiliateLink>
-      <div className="text-[11px] text-[#5B6470] text-center">
-        Updated {product.updatedDate} · Amazon Associate link
+      <div className="text-[12px] text-muted text-center mb-5">
+        Affiliate link
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-border pt-4 space-y-3 text-[13px] leading-[18px]">
+        <div className="flex items-center justify-between">
+          <span className="text-muted">Price tier</span>
+          <span className="font-medium text-ink">{product.priceTier}</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-muted">Best for</span>
+          <span className="font-medium text-ink text-right">Light scratches</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-muted">Last checked</span>
+          <span className="font-medium text-ink">{product.updatedDate}</span>
+        </div>
       </div>
     </div>
   );

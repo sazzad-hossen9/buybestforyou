@@ -1,54 +1,36 @@
 import Link from 'next/link';
-import { Info } from 'lucide-react';
 
 interface HowWeRankedProps {
   methodNote: string;
   sources?: string;
+  updatedDate?: string;
 }
 
-export function HowWeRanked({ methodNote, sources }: HowWeRankedProps) {
+export function HowWeRanked({
+  methodNote,
+  sources = 'manufacturer spec sheets, Amazon verified-purchase ratings, expert coverage',
+  updatedDate = 'December 21, 2025'
+}: HowWeRankedProps) {
   return (
-    <section id="how-we-ranked-these" className="mb-14 scroll-mt-24">
-      <div className="rounded-[16px] bg-[#E6EFF4] border border-[#D1E1EB] p-6 lg:p-7">
-        <div className="flex items-center gap-2 mb-3">
-          <Info className="w-5 h-5 text-[#2B5D7C]" />
-          <h2 className="text-[18px] font-bold text-[#1A1D21]">
-            How we ranked these
-          </h2>
-        </div>
+    <section id="how-we-ranked" className="mb-14 scroll-mt-[calc(var(--header-total-height,104px)+1.5rem)]">
+      <div className="rounded-[var(--r-card)] bg-tint-elec-bg border border-tint-elec-border p-6 lg:p-7">
+        <h2 className="text-[22px] leading-[28px] font-bold text-ink mb-3">
+          How we ranked these
+        </h2>
 
-        <p className="text-[15px] leading-[24px] text-[#1A1D21] mb-5">
+        <p className="text-[15px] leading-[25px] text-ink mb-4">
           {methodNote}
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[#D1E1EB]/60">
-          <div className="bg-white/80 p-3 rounded-[12px] border border-[#D1E1EB]">
-            <div className="text-[12px] text-[#5B6470] font-semibold">BUYER RATINGS</div>
-            <div className="text-[18px] font-bold text-[#1A1D21]">35% weight</div>
-          </div>
-          <div className="bg-white/80 p-3 rounded-[12px] border border-[#D1E1EB]">
-            <div className="text-[12px] text-[#5B6470] font-semibold">SPEC MATCH</div>
-            <div className="text-[18px] font-bold text-[#1A1D21]">25% weight</div>
-          </div>
-          <div className="bg-white/80 p-3 rounded-[12px] border border-[#D1E1EB]">
-            <div className="text-[12px] text-[#5B6470] font-semibold">EXPERT LABS</div>
-            <div className="text-[18px] font-bold text-[#1A1D21]">25% weight</div>
-          </div>
-          <div className="bg-white/80 p-3 rounded-[12px] border border-[#D1E1EB]">
-            <div className="text-[12px] text-[#5B6470] font-semibold">PRICE VALUE</div>
-            <div className="text-[18px] font-bold text-[#1A1D21]">15% weight</div>
-          </div>
-        </div>
-
-        {sources && (
-          <div className="mt-4 text-[13px] text-[#5B6470]">
-            <span className="font-semibold text-[#1A1D21]">Data sources: </span>
-            {sources}. Read our full{' '}
-            <Link href="/about" className="text-[#2B5D7C] underline font-medium hover:text-[#1A1D21]">
-              methodology and testing policy
-            </Link>.
-          </div>
-        )}
+        <p className="text-[13px] leading-relaxed text-muted">
+          <Link
+            href="/about#method"
+            className="text-trust underline font-medium hover:text-ink"
+          >
+            Read the full method
+          </Link>
+          {' · '}Last checked {updatedDate} · Sources: {sources}
+        </p>
       </div>
     </section>
   );

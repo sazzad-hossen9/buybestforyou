@@ -15,42 +15,62 @@ export function TOC({ items }: TOCProps) {
   const [activeId, setActiveId] = useState<string>(items[0]?.id || '');
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+    const handleScroll = () => {
+      // Offset for sticky header (64px) + disclosure bar (40px) + margin
+      const scrollPos = window.scrollY + 130;
+      let currentId = items[0]?.id || '';
+
+      for (const item of items) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (top <= scrollPos) {
+            currentId = item.id;
           }
-        });
-      },
-      {
-        rootMargin: '-80px 0px -60% 0px',
-        threshold: 0.1
+        }
       }
-    );
+      setActiveId(currentId);
+    };
 
-    items.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [items]);
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 120;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      setActiveId(id);
+      window.history.pushState(null, '', `#${id}`);
+    }
+  };
+
   return (
-    <nav className="p-4 bg-white border border-[#E4E7EB] rounded-[16px] shadow-xs" aria-label="Table of contents">
-      <div className="eyebrow text-[#5B6470] mb-3 font-bold tracking-wider">ON THIS PAGE</div>
-      <ul className="space-y-2 text-[14px]">
+    <nav className="text-[length:var(--fs-caption)] leading-[var(--lh-caption)]" aria-label="On this page">
+      <div className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] font-bold uppercase tracking-wider text-ink mb-3">
+        ON THIS PAGE
+      </div>
+      <ul className="space-y-2.5 border-l border-border pl-3.5">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
-            <li key={item.id}>
+            <li key={item.id} className="relative">
               <a
                 href={`#${item.id}`}
-                className={`block py-1 transition-colors ${
+                onClick={(e) => handleClick(e, item.id)}
+                className={`block leading-snug transition-colors ${
                   isActive
-                    ? 'font-bold text-[#B84A14] border-l-2 border-[#B84A14] pl-2 -ml-2'
-                    : 'text-[#5B6470] hover:text-[#1A1D21] hover:underline'
+                    ? 'font-bold text-ink -ml-[15px] pl-[13px] border-l-2 border-ink'
+                    : 'text-muted hover:text-ink'
                 }`}
               >
                 {item.label}

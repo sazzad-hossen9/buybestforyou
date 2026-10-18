@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: 'General inquiry',
+    subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,8 +17,8 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      toast.error('Please fill in all required fields.');
+    if (!formData.name.trim() || !formData.email.trim()) {
+      toast.error('Please provide your name and email address.');
       return;
     }
 
@@ -28,7 +28,11 @@ export function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          subject: formData.subject || 'General inquiry',
+          message: formData.message || '(No message provided)'
+        })
       });
 
       const data = await res.json();
@@ -39,7 +43,7 @@ export function ContactForm() {
         setFormData({
           name: '',
           email: '',
-          subject: 'General inquiry',
+          subject: '',
           message: ''
         });
       } else {
@@ -54,18 +58,18 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white border border-[#E4E7EB] rounded-[20px] p-8 text-center shadow-xs">
-        <div className="w-16 h-16 rounded-full bg-[#E8F2EB] text-[#007A58] flex items-center justify-center mx-auto mb-4">
-          <CheckCircle2 className="w-8 h-8" />
+      <div className="rounded-[var(--r-card-feature)] border border-border bg-white text-center py-12 px-6 shadow-xs">
+        <div className="w-14 h-14 rounded-full bg-tint-home-bg text-positive flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+          ✓
         </div>
-        <h3 className="h-2 mb-2">Message received!</h3>
-        <p className="text-body text-[#5B6470] mb-6 max-w-md mx-auto">
+        <h3 className="text-[24px] leading-[30px] font-extrabold text-ink mb-2">Message received!</h3>
+        <p className="text-[16px] leading-[24px] text-muted mb-6 max-w-md mx-auto">
           Thanks for reaching out to buybestforyou. A member of our editorial staff typically replies within 2 business days.
         </p>
         <button
           type="button"
           onClick={() => setIsSubmitted(false)}
-          className="btn-secondary text-[14px]"
+          className="rounded-full border border-border bg-white px-5 py-2.5 text-[14px] font-semibold text-ink hover:bg-surface-muted transition-colors cursor-pointer"
         >
           Send another message
         </button>
@@ -74,81 +78,71 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white border border-[#E4E7EB] rounded-[20px] p-6 lg:p-8 shadow-xs">
-      <div className="space-y-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {/* Name */}
-          <div className="field">
-            <label htmlFor="contact-name" className="label">
-              Your name <span className="text-[#B84A14]">*</span>
-            </label>
-            <input
-              id="contact-name"
-              type="text"
-              required
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="e.g. Alex Morgan"
-              className="input"
-            />
-          </div>
+    <form onSubmit={handleSubmit} className="rounded-[var(--r-card-feature)] border border-border bg-white p-6 lg:p-8 space-y-5 shadow-xs">
+      {/* Name */}
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="contact-name" className="text-[14px] font-semibold text-ink">
+          Your name
+        </label>
+        <input
+          id="contact-name"
+          type="text"
+          required
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          className="w-full rounded-[var(--r-input)] border border-border-input bg-white px-4 py-3 text-[15px] leading-[22px] text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-trust focus:border-transparent transition-all"
+        />
+      </div>
 
-          {/* Email */}
-          <div className="field">
-            <label htmlFor="contact-email" className="label">
-              Email address <span className="text-[#B84A14]">*</span>
-            </label>
-            <input
-              id="contact-email"
-              type="email"
-              required
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="you@example.com"
-              className="input"
-            />
-          </div>
-        </div>
+      {/* Email */}
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="contact-email" className="text-[14px] font-semibold text-ink">
+          Your email
+        </label>
+        <input
+          id="contact-email"
+          type="email"
+          required
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          className="w-full rounded-[var(--r-input)] border border-border-input bg-white px-4 py-3 text-[15px] leading-[22px] text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-trust focus:border-transparent transition-all"
+        />
+      </div>
 
-        {/* Subject */}
-        <div className="field">
-          <label htmlFor="contact-subject" className="label">
-            Subject
-          </label>
-          <select
-            id="contact-subject"
-            value={formData.subject}
-            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-            className="input bg-white cursor-pointer"
-          >
-            <option value="General inquiry">General inquiry</option>
-            <option value="Spotted an error / Correction">Spotted an error / Correction</option>
-            <option value="Pitch an article / Guest author">Pitch an article / Guest author</option>
-            <option value="Affiliate or business question">Affiliate or business question</option>
-          </select>
-        </div>
+      {/* Subject */}
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="contact-subject" className="text-[14px] font-semibold text-ink">
+          Subject
+        </label>
+        <input
+          id="contact-subject"
+          type="text"
+          value={formData.subject}
+          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+          className="w-full rounded-[var(--r-input)] border border-border-input bg-white px-4 py-3 text-[15px] leading-[22px] text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-trust focus:border-transparent transition-all"
+        />
+      </div>
 
-        {/* Message */}
-        <div className="field">
-          <label htmlFor="contact-message" className="label">
-            Message <span className="text-[#B84A14]">*</span>
-          </label>
-          <textarea
-            id="contact-message"
-            required
-            rows={5}
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            placeholder="Tell us what's on your mind. If reporting a factual error or broken link, please include the URL."
-            className="textarea"
-          />
-        </div>
+      {/* Message */}
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="contact-message" className="text-[14px] font-semibold text-ink">
+          Your message <span className="text-muted font-normal text-[13px]">(optional)</span>
+        </label>
+        <textarea
+          id="contact-message"
+          rows={5}
+          value={formData.message}
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          className="w-full rounded-[var(--r-input)] border border-border-input bg-white px-4 py-3 text-[15px] leading-[22px] text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-trust focus:border-transparent transition-all resize-y"
+        />
+      </div>
 
-        {/* Submit */}
+      {/* Submit */}
+      <div className="pt-2">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-cta text-[15px] py-3 px-8 w-full sm:w-auto flex items-center justify-center gap-2"
+          className="rounded-full bg-ink text-white hover:opacity-90 transition-opacity px-8 py-3 text-[15px] font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer disabled:opacity-50"
         >
           {isSubmitting ? (
             <>
@@ -156,10 +150,7 @@ export function ContactForm() {
               <span>Sending...</span>
             </>
           ) : (
-            <>
-              <span>Send message</span>
-              <Send className="w-4 h-4" />
-            </>
+            <span>Submit</span>
           )}
         </button>
       </div>

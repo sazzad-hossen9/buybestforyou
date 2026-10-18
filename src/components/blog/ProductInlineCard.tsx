@@ -21,14 +21,14 @@ export function ProductInlineCard({
   affiliateUrl
 }: ProductInlineCardProps) {
   return (
-    <div className="my-8 p-5 sm:p-6 rounded-[16px] bg-[#F6F7F9] border border-[#E4E7EB] shadow-xs">
+    <div className="my-8 p-5 sm:p-6 rounded-[var(--r-card)] bg-surface-muted border border-border shadow-xs">
       <div className="flex items-center gap-2 mb-3">
-        <span className="w-2 h-2 rounded-full bg-[#B84A14]"></span>
-        <span className="eyebrow text-[#B84A14]">{label}</span>
+        <span className="w-2 h-2 rounded-full bg-cta"></span>
+        <span className="text-[12px] uppercase tracking-wider text-cta font-bold">{label}</span>
       </div>
 
       <div className="flex flex-col sm:flex-row items-center gap-5">
-        <div className="relative w-24 h-24 rounded-[12px] bg-white border border-[#E4E7EB] overflow-hidden shrink-0">
+        <div className="relative w-24 h-24 rounded-full bg-white border border-border overflow-hidden shrink-0">
           <SafeImage
             src={image || '/images/placeholder.jpg'}
             alt={name}
@@ -39,26 +39,26 @@ export function ProductInlineCard({
 
         <div className="flex-1 text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
-            <h4 className="font-bold text-[17px] text-[#1A1D21]">
+            <h4 className="font-bold text-[17px] text-ink">
               {name}
             </h4>
-            <span className="text-[12px] font-semibold text-[#5B6470] bg-white px-2 py-0.5 rounded-full border border-[#E4E7EB]">
+            <span className="text-[12px] font-semibold text-muted bg-white px-2 py-0.5 rounded-full border border-border">
               {tier}
             </span>
           </div>
-          <p className="text-[13px] text-[#5B6470] mb-3">
+          <p className="text-[13px] text-muted mb-3">
             Ranked highest in our scratch remover tests for consistency and OEM color matching.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <AffiliateLink
               href={affiliateUrl}
-              className="btn-cta text-[14px] py-2 px-4 flex items-center justify-center gap-1.5 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-cta px-4 py-2 text-[14px] font-semibold text-white hover:bg-cta-hover transition-colors w-full sm:w-auto"
             >
-              <span>Check price on Amazon</span>
+              <span>Check price</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </AffiliateLink>
-            <span className="text-[11px] text-[#5B6470]">
+            <span className="text-[11px] text-muted">
               Affiliate link · we may earn a commission
             </span>
           </div>

@@ -15,68 +15,56 @@ export function HowItScored({ scoreBreakdown, weights }: HowItScoredProps) {
     {
       name: 'Verified buyer ratings',
       score: scoreBreakdown.verifiedBuyerRatings,
-      weight: weights.verifiedBuyerRatings,
-      description: 'Aggregated sentiment from hundreds of verified Amazon customer reviews.'
+      weight: weights.verifiedBuyerRatings
     },
     {
       name: 'Spec match to claims',
       score: scoreBreakdown.specMatchToClaims,
-      weight: weights.specMatchToClaims,
-      description: 'How closely actual capability meets manufacturer advertised performance.'
+      weight: weights.specMatchToClaims
     },
     {
-      name: 'Expert coverage & teardowns',
+      name: 'Expert and press coverage',
       score: scoreBreakdown.expertLabCoverage,
-      weight: weights.expertLabCoverage,
-      description: 'Consensus from independent automotive specialists and professional labs.'
+      weight: weights.expertLabCoverage
     },
     {
-      name: 'Value for price tier',
+      name: 'Value for the price tier',
       score: scoreBreakdown.valueForPriceTier,
-      weight: weights.valueForPriceTier,
-      description: 'Performance delivered relative to its market tier and competing alternatives.'
+      weight: weights.valueForPriceTier
     }
   ];
 
   return (
     <section className="mb-12">
-      <div className="mb-6">
-        <div className="eyebrow text-[#5B6470] mb-1 font-bold">METHODOLOGY IN ACTION</div>
-        <h2 className="h-2">How it scored</h2>
-        <p className="text-caption mt-1">
-          Every product is evaluated across four weighted dimensions. We do not accept free samples or manufacturer sponsorships.
+      <div className="mb-4">
+        <h2 className="text-[28px] leading-[34px] font-bold text-ink tracking-tight mb-2">
+          How it scored
+        </h2>
+        <p className="text-[14px] leading-[20px] text-muted">
+          We did not test this product ourselves. The score combines four inputs, weighted as shown. [Sample weights]
         </p>
       </div>
 
-      <div className="bg-white border border-[#E4E7EB] rounded-[16px] p-6 space-y-6 shadow-xs">
+      <div className="space-y-4 pt-2">
         {criteria.map((item, idx) => {
           const percentage = (item.score / 5) * 100;
           return (
             <div key={idx} className="space-y-1.5">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-[15px] text-[#1A1D21]">
-                    {item.name}
-                  </span>
-                  <span className="text-[12px] font-semibold text-[#5B6470] bg-[#F6F7F9] px-2 py-0.5 rounded-full border border-[#E4E7EB]">
-                    {item.weight}% weight
-                  </span>
-                </div>
-                <div className="font-bold text-[15px] text-[#007A58]">
-                  {item.score.toFixed(1)} <span className="text-[#5B6470] text-[13px] font-normal">/ 5.0</span>
-                </div>
+              <div className="flex items-baseline justify-between text-[14px]">
+                <span className="font-semibold text-ink">
+                  {item.name} <span className="text-muted font-normal">({item.weight}%)</span>
+                </span>
+                <span className="font-bold text-ink">
+                  {item.score.toFixed(1)}
+                </span>
               </div>
 
-              <div className="bar-track">
+              <div className="w-full bg-border rounded-full h-2 overflow-hidden">
                 <div
-                  className="bar-fill"
+                  className="bg-score h-2 rounded-full transition-all duration-500"
                   style={{ width: `${percentage}%` }}
                 />
               </div>
-
-              <p className="text-[13px] text-[#5B6470]">
-                {item.description}
-              </p>
             </div>
           );
         })}

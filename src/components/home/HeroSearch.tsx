@@ -17,12 +17,12 @@ export function HeroSearch() {
 
       {/* Popular Chips */}
       <div className="flex items-center flex-wrap gap-2 text-[13px] md:text-[14px]">
-        <span className="text-[#5B6470] font-medium mr-1 select-none">Popular:</span>
+        <span className="text-muted font-medium mr-1 select-none">Popular:</span>
         {POPULAR_SEARCHES.map((chip, idx) => (
           <Link
             key={idx}
             href={`/search?q=${encodeURIComponent(chip.query)}`}
-            className="inline-flex items-center px-3 py-1 rounded-full border border-[#E4E7EB] bg-white text-[#5B6470] hover:text-[#1A1D21] hover:border-[#8A929C] transition-colors"
+            className="inline-flex items-center px-3 py-1 rounded-full border border-border bg-white text-muted hover:text-ink hover:border-border-strong transition-colors"
           >
             {chip.label}
           </Link>

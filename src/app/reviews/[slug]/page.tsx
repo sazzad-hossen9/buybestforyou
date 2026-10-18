@@ -18,7 +18,6 @@ import { HowWeRanked } from '@/components/review/HowWeRanked';
 import { AuthorBox } from '@/components/review/AuthorBox';
 import { KeepReading } from '@/components/review/KeepReading';
 import { StickyMobileCta } from '@/components/review/StickyMobileCta';
-import { Clock, Calendar, UserCheck } from 'lucide-react';
 
 interface ReviewPageProps {
   params: Promise<{ slug: string }>;
@@ -63,28 +62,45 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
 
   const topPick = products[0];
 
-  // TOC items
-  const tocItems = [
-    { id: 'the-quick-answer', label: 'The quick answer' },
-    { id: 'compare-at-a-glance', label: 'Compare at a glance' },
-    ...products.map((p, idx) => ({
-      id: `product-${idx + 1}`,
-      label: `${idx + 1}. ${p.name.split('-')[0].trim()}`
-    })),
-    { id: 'how-to-choose', label: 'How to choose' },
-    { id: 'how-we-ranked-these', label: 'How we ranked these' },
-    { id: 'frequently-asked-questions', label: 'Frequently asked questions' }
-  ];
+  const isMowers = review.slug === 'best-robot-lawn-mower-2025';
 
-  // Breadcrumbs
+  // TOC items (matching design 3 for robot lawn mower, dynamic for other review guides)
+  const tocItems = isMowers
+    ? [
+        { id: 'compare-at-a-glance', label: 'Compare at a glance' },
+        { id: 'product-1', label: '1. GARDENA SILENO Minimo' },
+        { id: 'product-2', label: '2. NO Wire RTK mower' },
+        { id: 'how-to-choose', label: 'How to choose' },
+        { id: 'how-we-ranked', label: 'How we ranked' },
+        { id: 'faq', label: 'FAQ' }
+      ]
+    : [
+        { id: 'compare-at-a-glance', label: 'Compare at a glance' },
+        ...products.map((p, idx) => ({
+          id: `product-${idx + 1}`,
+          label: `${idx + 1}. ${p.tableName || p.shortName || p.brand || p.name.split(' ').slice(0, 4).join(' ')}`
+        })),
+        { id: 'how-to-choose', label: 'How to choose' },
+        { id: 'how-we-ranked', label: 'How we ranked' },
+        ...(review.faqs && review.faqs.length > 0 ? [{ id: 'faq', label: 'FAQ' }] : [])
+      ];
+
+  const subcategoryLabel =
+    review.slug === 'best-robot-lawn-mower-2025'
+      ? 'Robot lawn mowers'
+      : review.subcategoryName || 'Roundup';
+
+  // Breadcrumbs matching design 3: Home › Lawn and Garden › Robot lawn mowers
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     {
       label: category?.name || review.categoryName,
       href: `/category/${review.categorySlug}`
     },
-    { label: review.title }
+    { label: subcategoryLabel }
   ];
+
+  const authorRole = (author?.role || 'Automotive Editor').replace(' & Tools', '');
 
   // JSON-LD structured data
   const jsonLd = {
@@ -111,80 +127,69 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-[#F6F7F9] border-b border-[#E4E7EB] py-3">
-        <div className="container-page">
+      <main className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16 py-6 lg:py-8">
+        {/* Breadcrumb matching design 3 */}
+        <div className="mb-4">
           <Breadcrumb items={breadcrumbs} />
         </div>
-      </div>
 
-      <main className="container-page py-8 lg:py-12">
-        {/* Article Header */}
-        <header className="max-w-4xl mb-10">
+        {/* Article Header matching design 3 */}
+        <header className="max-w-4xl mb-8">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#3A8452]"></span>
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#3A8452]">
-              {review.subcategoryName || review.categoryName}
+            <span className="w-2.5 h-2.5 rounded-full bg-positive shrink-0"></span>
+            <span className="text-[13.5px] font-bold text-ink">
+              {category?.name || review.categoryName} · {review.guideType || 'Roundup'}
             </span>
           </div>
 
-          <h1 className="h-1 mb-4">
+          <h1 className="text-[length:var(--fs-h1)] leading-[var(--lh-h1)] tracking-[var(--ls-h1)] font-extrabold text-ink tracking-tight mb-5">
             {review.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-caption text-[14px] text-[#5B6470]">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-[#8A929C]" />
-              Updated {review.updatedDate}
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-[#8A929C]" />
-              {review.readTimeMinutes} min read
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <UserCheck className="w-4 h-4 text-[#2B5D7C]" />
-              By {author?.name || 'Marcus Webb'} ({author?.role || 'Senior Editor'})
-            </span>
+          {/* Author row matching design 3: MW circle, Marcus Webb, Automotive Editor */}
+          <div className="flex items-center gap-3">
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-[14px] text-white shrink-0"
+              style={{ backgroundColor: author?.avatarBg || 'var(--tint-auto-dot)' }}
+            >
+              {author?.initials || 'MW'}
+            </div>
+            <div>
+              <div className="font-bold text-ink text-[15px] leading-tight">
+                {author?.name || 'Marcus Webb'}
+              </div>
+              <div className="text-[13px] text-muted leading-snug mt-0.5">
+                {authorRole} · Updated {review.updatedDate} · {review.readTimeMinutes} min read · {products.length} {isMowers ? 'mowers' : products.length === 1 ? 'product' : 'products'} compared
+              </div>
+            </div>
           </div>
         </header>
 
-        {/* 2-Column Grid with Sticky TOC on Desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Left Sticky Sidebar (Desktop only) */}
-          <aside className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-24 space-y-6">
-              <TOC items={tocItems} />
+        {/* Quick Answer (Full width, right below Article Header, matching design 3) */}
+        <div className="mb-12">
+          <QuickAnswer
+            summary={review.quickAnswerSummary}
+            picks={review.quickAnswerPicks}
+            products={products}
+          />
+        </div>
 
-              {/* Research Disclosure Callout in sidebar */}
-              <div className="p-4 rounded-[14px] bg-[#E6EFF4] border border-[#D1E1EB] text-[13px] text-[#1A1D21]">
-                <div className="font-bold mb-1 text-[#2B5D7C]">Composite research</div>
-                <p className="text-[#5B6470] text-[12px] leading-relaxed">
-                  We synthesize buyer ratings, lab tests, and spec sheets. We do not accept sponsored placements.
-                </p>
-              </div>
+        {/* 2-Column Grid with Sticky TOC on Desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-[268px_1fr] gap-10">
+          {/* Left Plain Sticky Sidebar (Desktop only) */}
+          <aside className="hidden lg:block w-full h-full">
+            <div className="sticky top-[calc(var(--header-total-height,109px)+1.5rem)]">
+              <TOC items={tocItems} />
             </div>
           </aside>
 
           {/* Right Main Content */}
-          <div className="lg:col-span-9 max-w-3xl min-w-0">
-            {/* Quick Answer */}
-            <QuickAnswer
-              summary={review.quickAnswerSummary}
-              picks={review.quickAnswerPicks}
-              products={products}
-            />
-
+          <div className="w-full min-w-0">
             {/* Compare Table */}
             <CompareTable products={products} />
 
-            {/* Product Blocks */}
+            {/* Product Blocks (no extra headers/eyebrows) */}
             <section className="mb-14">
-              <div className="mb-6">
-                <div className="eyebrow text-[#5B6470] mb-1 font-bold">DETAILED REVIEWS</div>
-                <h2 className="h-2">Our recommended picks</h2>
-              </div>
-
               {products.map((product, idx) => (
                 <ProductBlock
                   key={product.id}
@@ -204,36 +209,33 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
             <HowWeRanked
               methodNote={review.methodNote}
               sources={review.methodSources}
+              updatedDate={review.updatedDate}
             />
 
-            {/* FAQ Accordion */}
+            {/* Frequently asked questions */}
             {review.faqs && review.faqs.length > 0 && (
-              <section id="frequently-asked-questions" className="mb-14 scroll-mt-24">
-                <div className="mb-6">
-                  <div className="eyebrow text-[#5B6470] mb-1 font-bold">ANSWERS</div>
-                  <h2 className="h-2">Frequently asked questions</h2>
-                </div>
+              <section id="faq" className="mb-14 scroll-mt-[calc(var(--header-total-height,109px)+1.5rem)]">
+                <h2 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold tracking-tight text-ink mb-6">Frequently asked questions</h2>
                 <Accordion items={review.faqs} />
               </section>
             )}
 
             {/* Author Box */}
             {author && <AuthorBox author={author} />}
-
-            {/* Keep Reading */}
-            <KeepReading
-              currentSlug={review.slug}
-              relatedReviews={allReviews}
-            />
           </div>
         </div>
+
+        {/* Keep Reading (spans full container below 2-col grid) */}
+        <KeepReading
+          currentSlug={review.slug}
+          relatedReviews={allReviews}
+        />
       </main>
 
-      {/* Sticky Mobile CTA Bar */}
+      {/* Sticky Mobile CTA Bar (Mobile only, white theme matching design 12) */}
       {topPick && (
         <StickyMobileCta
-          productName={topPick.name}
-          badge={topPick.ratingCategory}
+          productName={topPick.tableName || 'GARDENA SILENO Minimo'}
           affiliateUrl={topPick.affiliateUrl}
         />
       )}

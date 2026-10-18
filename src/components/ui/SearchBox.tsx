@@ -110,11 +110,11 @@ export function SearchBox({
           onFocus={() => query.trim() && setIsOpen(true)}
           placeholder={placeholder}
           autoFocus={autoFocus}
-          className="w-full bg-white border border-[#8A929C] focus:border-[#2B5D7C] focus:ring-2 focus:ring-[#2B5D7C]/20 rounded-full py-2.5 sm:py-3 pl-4 sm:pl-5 pr-22 sm:pr-28 text-[14px] sm:text-[15px] md:text-[16px] text-[#1A1D21] placeholder-[#5B6470] outline-none shadow-sm transition-all"
+          className="w-full bg-white border border-border focus:border-trust focus:ring-2 focus:ring-trust/20 rounded-full h-[67px] pl-6 pr-32 text-[15px] md:text-[16px] text-ink placeholder:text-muted outline-none shadow-sm transition-all"
         />
         <button
           type="submit"
-          className="absolute right-1.5 bg-[#B84A14] hover:bg-[#9E3F10] text-white px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full font-semibold text-[13px] md:text-[15px] transition-colors select-none"
+          className="absolute right-2 bg-cta hover:bg-cta-hover text-white w-[109px] h-[48px] rounded-full font-semibold text-[15px] transition-colors select-none flex items-center justify-center cursor-pointer shadow-xs"
         >
           Search
         </button>
@@ -122,9 +122,9 @@ export function SearchBox({
 
       {/* Autocomplete Dropdown */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-xl border border-[#E4E7EB] py-2 z-50 overflow-hidden">
+        <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-[var(--r-card)] shadow-[var(--sh-dropdown)] border border-border py-2 z-50 overflow-hidden">
           {results.length > 0 ? (
-            <div className="divide-y divide-[#F1F3F5]">
+            <div className="divide-y divide-border">
               {results.map((item, idx) => (
                 <Link
                   key={item.id}
@@ -133,41 +133,41 @@ export function SearchBox({
                     setIsOpen(false);
                     if (onSelect) onSelect();
                   }}
-                  className={`flex items-start gap-3 px-4 py-3 hover:bg-[#F6F7F9] transition-colors text-left ${
-                    selectedIndex === idx ? 'bg-[#F6F7F9]' : ''
+                  className={`flex items-start gap-3 px-4 py-3 hover:bg-surface-muted transition-colors text-left ${
+                    selectedIndex === idx ? 'bg-surface-muted' : ''
                   }`}
                 >
                   <span
                     className="w-2.5 h-2.5 rounded-full mt-1.5 shrink-0"
-                    style={{ backgroundColor: item.categoryDot || '#2B5D7C' }}
+                    style={{ backgroundColor: item.categoryDot || 'var(--trust)' }}
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="text-[14px] font-bold text-[#1A1D21] truncate">
+                    <p className="text-[length:var(--fs-caption)] leading-[var(--lh-caption)] font-bold text-ink truncate">
                       {item.title}
                     </p>
-                    <p className="text-[12.5px] text-[#5B6470] truncate">
+                    <p className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] text-muted truncate">
                       {item.excerpt}
                     </p>
                   </div>
                   {item.score && (
-                    <span className="shrink-0 text-[12px] font-bold bg-[#E8F2EB] text-[#007A58] px-2 py-0.5 rounded-full">
+                    <span className="shrink-0 text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] font-bold bg-pros-bg text-positive px-2 py-0.5 rounded-full">
                       {item.score.toFixed(1)}
                     </span>
                   )}
                 </Link>
               ))}
-              <div className="p-2 text-center bg-[#F9FAFB]">
+              <div className="p-2 text-center bg-tint-light">
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="text-[13px] font-semibold text-[#2B5D7C] hover:underline"
+                  className="text-[13px] font-semibold text-trust hover:underline"
                 >
                   See all results for &quot;{query}&quot; →
                 </button>
               </div>
             </div>
           ) : (
-            <div className="px-4 py-6 text-center text-[#5B6470] text-[14px]">
+            <div className="px-4 py-6 text-center text-muted text-[14px]">
               No results found for &quot;<span className="font-semibold">{query}</span>&quot;
             </div>
           )}

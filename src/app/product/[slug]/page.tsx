@@ -10,14 +10,13 @@ import {
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Accordion } from '@/components/ui/Accordion';
 import { Gallery } from '@/components/product/Gallery';
-import { VerdictCard } from '@/components/product/VerdictCard';
+import { ScoreRing } from '@/components/ui/ScoreRing';
 import { AtAGlance } from '@/components/product/AtAGlance';
 import { HowItScored } from '@/components/product/HowItScored';
 import { BuyerThemes } from '@/components/product/BuyerThemes';
 import { SpecsTable } from '@/components/product/SpecsTable';
 import { WhoShouldBuy } from '@/components/product/WhoShouldBuy';
 import { Alternatives } from '@/components/product/Alternatives';
-import { Calendar, Clock, UserCheck, Plus, Minus } from 'lucide-react';
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -29,12 +28,12 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return { title: 'Product Not Found | buybestforyou' };
 
   return {
-    title: `${product.name} Review | buybestforyou`,
+    title: `${product.name} | buybestforyou`,
     description: product.quickVerdict.slice(0, 155),
     openGraph: {
-      title: `${product.name} Review: Research & Score Breakdown`,
+      title: `${product.name}: Research & Score Breakdown`,
       description: product.quickVerdict.slice(0, 155),
-      images: [product.images[0] || '/images/og-default.jpg']
+      images: [product.images[0] || '/images/paint-pen-hero.jpg']
     }
   };
 }
@@ -61,10 +60,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     {
-      label: category?.name || product.subcategoryName,
+      label: category?.name || 'Automotive',
       href: `/category/${product.categorySlug}`
     },
-    { label: product.name }
+    {
+      label: 'Touch-up paint pens',
+      href: `/category/${product.categorySlug}`
+    },
+    { label: 'Review' }
   ];
 
   const jsonLd = {
@@ -93,103 +96,136 @@ export default async function ProductPage({ params }: ProductPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Tinted Product Hero */}
-      <section className="bg-[#F4EDE7] border-b border-[#E8DDD4] py-8 lg:py-12">
-        <div className="container-page">
+      {/* Tinted 2-Column Product Hero */}
+      <section className="bg-tint-auto-bg border-b border-tint-auto-border pt-6 pb-12 lg:pt-8 lg:pb-16">
+        <div className="mx-auto w-full max-w-[var(--container-max)] px-[var(--container-pad)]">
+          {/* Breadcrumb at top */}
           <div className="mb-6">
             <Breadcrumb items={breadcrumbs} />
           </div>
 
-          <div className="max-w-4xl mb-8">
-            <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#7A4E2D]"></span>
-              <span className="text-[13px] font-bold uppercase tracking-wider text-[#7A4E2D]">
-                {product.subcategoryName}
-              </span>
-            </div>
-
-            <h1 className="h-1 mb-4">
-              {product.name}
-            </h1>
-
-            <div className="flex flex-wrap items-center gap-4 text-caption text-[14px] text-[#5B6470]">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-[#8A929C]" />
-                Updated {product.updatedDate}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-[#8A929C]" />
-                {product.readTime}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <UserCheck className="w-4 h-4 text-[#2B5D7C]" />
-                By {author?.name || 'Marcus Webb'} ({author?.role || 'Car Care Editor'})
-              </span>
-            </div>
-          </div>
-
-          {/* Hero Grid: Gallery & Quick Verdict */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5">
+          {/* 2-Column Hero: Left 520px Image card, Right 552px at x=664, gap=80px */}
+          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-[80px]">
+            {/* Left Column: Image Card & Thumbnails (520px) */}
+            <div className="w-full lg:w-[520px] shrink-0">
               <Gallery images={product.images} productName={product.name} />
             </div>
-            <div className="lg:col-span-7">
-              <VerdictCard
-                score={product.compositeScore}
-                ratingCategory={product.ratingCategory}
-                priceTier={product.priceTier}
-                quickVerdict={product.quickVerdict}
-                bestFor={product.bestFor}
-                affiliateUrl={product.affiliateUrl}
-              />
+
+            {/* Right Column: Pills, H1, Subtitle, Score, Quick Verdict, CTA (552px) */}
+            <div className="w-full lg:w-[552px] shrink-0">
+              {/* Pills row */}
+              <div className="flex items-center gap-2 mb-4">
+                <span className="bg-ink text-white rounded-full px-3 py-1 text-[13px] font-semibold">
+                  {product.ratingCategory}
+                </span>
+                <span className="border border-ink text-ink rounded-full px-3 py-1 text-[13px] font-medium">
+                  {product.priceTier} price tier
+                </span>
+              </div>
+
+              {/* H1 inside right column (40px/44px, weight 700) */}
+              <h1 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-bold text-ink mb-3">
+                {product.name}
+              </h1>
+
+              {/* Subtitle (20px/30px muted) */}
+              <p className="text-[length:var(--fs-subhero)] leading-[var(--lh-subhero)] text-muted mb-6">
+                {product.shortDescription}
+              </p>
+
+              {/* Score ring (72px) with Composite score and Byline */}
+              <div className="flex flex-wrap items-center gap-4 mb-6">
+                <ScoreRing score={product.compositeScore} size={72} strokeWidth={5} />
+                <div className="pr-4 border-r border-border">
+                  <div className="font-bold text-ink text-[15px] leading-[20px]">Composite score</div>
+                  <div className="text-[13px] leading-[18px] text-muted">
+                    of 4 inputs · <span className="text-trust hover:underline cursor-pointer">How this is calculated</span>
+                  </div>
+                </div>
+                <div className="text-[13px] leading-[18px]">
+                  <div className="text-ink">
+                    By <span className="font-bold">{author?.name || 'Marcus Webb'}</span>{' '}
+                    <span className="text-muted">{author?.role || 'Automotive Editor'}</span>
+                  </div>
+                  <div className="text-muted">
+                    Updated {product.updatedDate} · {product.readTime}
+                  </div>
+                </div>
+              </div>
+
+              {/* White Quick Verdict Card (radius 20, padding 24) */}
+              <div className="rounded-[var(--r-card-feature)] bg-white p-6 shadow-xs border border-border mb-6">
+                <div className="text-[12px] font-bold uppercase tracking-wider text-trust mb-2">
+                  QUICK VERDICT
+                </div>
+                <p className="text-[15px] leading-[22px] text-ink font-normal">
+                  {product.quickVerdict}
+                </p>
+              </div>
+
+              {/* Action Buttons: Primary pill CTA next to outlined secondary pill */}
+              <div className="flex flex-wrap items-center gap-4 mb-3">
+                <a
+                  href={product.affiliateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-[263px] h-[52px] rounded-full bg-cta text-white font-semibold hover:bg-cta-hover transition-colors inline-flex items-center justify-center cursor-pointer shadow-xs text-[15px]"
+                >
+                  Check price on Amazon
+                </a>
+                <a
+                  href="#specifications"
+                  className="h-[52px] rounded-full border border-border-input text-ink font-medium px-6 hover:bg-surface-muted transition-colors inline-flex items-center justify-center text-[15px]"
+                >
+                  See specs
+                </a>
+              </div>
+
+              {/* Affiliate Note (13-14px / 20px muted) */}
+              <p className="text-[13px] leading-[18px] text-muted">
+                Affiliate link. We may earn a commission at no cost to you. Price and availability are set by Amazon and can change.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Main Content & Sticky Desktop Sidebar */}
-      <div className="container-page py-12">
+      <div className="mx-auto w-full max-w-[var(--container-max)] px-[var(--container-pad)] py-[var(--section-py)]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Main Review Column */}
-          <div className="lg:col-span-8 min-w-0">
+          <div className="lg:col-span-8 min-w-0 max-w-[760px]">
             {/* Pros and Cons */}
             <section className="mb-12">
-              <div className="mb-6">
-                <div className="eyebrow text-[#5B6470] mb-1 font-bold">STRENGTHS & DRAWBACKS</div>
-                <h2 className="h-2">What works, and what doesn’t</h2>
-              </div>
+              <h2 className="text-[28px] leading-[34px] font-bold text-ink tracking-tight mb-4">
+                Pros and cons
+              </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="panel-pros">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-5 h-5 rounded-full bg-[#007A58] text-white flex items-center justify-center text-[12px] font-bold">
-                      <Plus className="w-3.5 h-3.5" />
-                    </span>
-                    <h3 className="font-bold text-[#007A58] text-[16px]">What works</h3>
-                  </div>
-                  <ul className="space-y-2.5 text-[14px] text-[#1A1D21]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* What works */}
+                <div className="rounded-[var(--r-card)] bg-pros-bg border border-border p-5">
+                  <h3 className="font-bold text-ink text-[16px] mb-4">
+                    What works
+                  </h3>
+                  <ul className="space-y-3">
                     {product.pros.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-[#007A58] font-bold select-none">•</span>
+                      <li key={idx} className="flex items-start gap-2.5 text-[14px] leading-[20px] text-ink">
+                        <span className="text-positive font-bold select-none text-[16px] shrink-0 leading-none mt-0.5">+</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="panel-cons">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-5 h-5 rounded-full bg-[#B34E00] text-white flex items-center justify-center text-[12px] font-bold">
-                      <Minus className="w-3.5 h-3.5" />
-                    </span>
-                    <h3 className="font-bold text-[#B34E00] text-[16px]">What doesn’t</h3>
-                  </div>
-                  <ul className="space-y-2.5 text-[14px] text-[#1A1D21]">
+                {/* What doesn't */}
+                <div className="rounded-[var(--r-card)] bg-cons-bg border border-border p-5">
+                  <h3 className="font-bold text-ink text-[16px] mb-4">
+                    What doesn’t
+                  </h3>
+                  <ul className="space-y-3">
                     {product.cons.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-[#B34E00] font-bold select-none">•</span>
+                      <li key={idx} className="flex items-start gap-2.5 text-[14px] leading-[20px] text-ink">
+                        <span className="text-negative font-bold select-none text-[16px] shrink-0 leading-none mt-0.5">–</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -219,20 +255,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
             {/* Alternatives */}
             <Alternatives alternatives={product.alternatives} />
 
-            {/* Product FAQs */}
+            {/* Product Questions (Accordion) */}
             {faqs && faqs.length > 0 && (
               <section className="mb-12">
-                <div className="mb-6">
-                  <div className="eyebrow text-[#5B6470] mb-1 font-bold">ANSWERS</div>
-                  <h2 className="h-2">Frequently asked questions</h2>
-                </div>
+                <h2 className="text-[28px] leading-[34px] font-bold text-ink tracking-tight mb-4">
+                  Questions
+                </h2>
                 <Accordion items={faqs} />
               </section>
             )}
           </div>
 
           {/* Sticky Desktop Summary Sidebar */}
-          <aside className="hidden lg:block lg:col-span-4">
+          <aside className="hidden lg:block lg:col-span-4 h-full">
             <AtAGlance product={product} />
           </aside>
         </div>

@@ -19,13 +19,13 @@ export function TrustStrip() {
   ];
 
   return (
-    <section className="border-y border-[#E4E7EB] bg-[#F6F7F9] py-8">
-      <div className="container-page">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="border-y border-border bg-surface-muted py-8">
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, index) => (
             <div key={index} className="flex items-start gap-3.5">
               {/* Checkmark circle icon */}
-              <div className="shrink-0 w-6 h-6 rounded-full bg-[#2B5D7C] text-white flex items-center justify-center mt-0.5">
+              <div className="shrink-0 w-6 h-6 rounded-full bg-trust text-white flex items-center justify-center mt-0.5">
                 <svg
                   width="14"
                   height="14"
@@ -40,10 +40,10 @@ export function TrustStrip() {
                 </svg>
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-[14.5px] font-bold text-[#1A1D21]">
+                <h4 className="text-[14.5px] font-bold text-ink">
                   {item.title}
                 </h4>
-                <p className="text-[13px] leading-[18px] text-[#5B6470]">
+                <p className="text-[13px] leading-[18px] text-muted">
                   {item.description}
                 </p>
               </div>

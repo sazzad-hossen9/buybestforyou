@@ -2,7 +2,8 @@
   {
     "id": "scratch-fix-paint-pen",
     "slug": "scratch-fix-paint-pen",
-    "name": "Dupli-Color Scratch-Fix All-in-1 Exact-Match Paint Pen",
+    "name": "[Brand] Scratch-Fix Paint Pen Review",
+    "shortName": "[Brand] Scratch-Fix Pen",
     "brand": "Dupli-Color",
     "categorySlug": "automotive",
     "subcategoryName": "Automotive Parts & Accessories",
@@ -57,16 +58,15 @@
       "lookElsewhere": "Deep scratches, rust spots, matte or pearlescent finishes. See our full roundup."
     },
     "alternatives": [
-      { "title": "TouchUpDirect Platinum Kit", "badge": "Best for deep scratches", "score": 4.4, "tier": "Mid tier", "slug": "touchup-platinum-kit" },
-      { "title": "Rust-Oleum Automotive Touch-Up", "badge": "Best budget", "score": 4.3, "tier": "Budget tier", "slug": "rust-oleum-touchup" },
-      { "title": "ScratchesHappen Complete Kit", "badge": "Best premium", "score": 4.5, "tier": "Premium tier", "slug": "scratcheshappen-kit" }
+      { "title": "[Brand B] Quick-Cover Pen", "badge": "Best budget", "score": 4.3, "tier": "Budget tier", "slug": "rust-oleum-touchup" },
+      { "title": "[Brand C] Repair Kit", "badge": "Best for deep scratches", "score": 4.4, "tier": "Mid tier", "slug": "touchup-platinum-kit" },
+      { "title": "[Brand D] Pro Blend Set", "badge": "Best premium", "score": 4.5, "tier": "Premium tier", "slug": "scratcheshappen-kit" }
     ],
     "images": [
       "/images/paint-pen-hero.jpg",
       "/images/paint-pen-thumb-1.jpg",
       "/images/paint-pen-thumb-2.jpg",
-      "/images/paint-pen-thumb-3.jpg",
-      "/images/paint-pen-thumb-4.jpg"
+      "/images/paint-pen-thumb-3.jpg"
     ],
     "affiliateUrl": "https://www.amazon.com/dp/B00HE66OK8",
     "updatedDate": "Oct 3, 2026",
@@ -95,6 +95,8 @@
       "expertLabCoverage": 25,
       "valueForPriceTier": 15
     },
+    "tableName": "GARDENA 15201-20 SILENO Minimo",
+    "bestForShort": "Quiet, smart, smaller lawns",
     "bestFor": "tech-savvy homeowners with smaller lawns who want an automatic mowing solution",
     "shortDescription": "Ultra-quiet automatic robotic mower with SensorCut technology designed for compact and medium suburban lawns.",
     "quickVerdict": "Superb quiet performer for lawns under 5,400 sq ft. Requires one-time perimeter wire setup, but runs seamlessly rain or shine afterwards.",
@@ -161,6 +163,8 @@
       "expertLabCoverage": 25,
       "valueForPriceTier": 15
     },
+    "tableName": "Robot Lawn Mower NO Wire, 0.9 Acre",
+    "bestForShort": "Wire-free setup, larger lawns",
     "bestFor": "larger lawns where you want to skip the boundary wire",
     "shortDescription": "Wire-free perimeter navigation with RTK positioning and 4-camera visual obstacle avoidance.",
     "quickVerdict": "The top wire-free mower for complex yards. Sets up virtual boundaries in the companion app without pegging a single physical wire.",
@@ -377,5 +381,67 @@
     "updatedDate": "July 2026",
     "readTime": "8 min read",
     "authorSlug": "sam-okafor"
+  },
+  {
+    "id": "robot-toy-desk-buddy",
+    "slug": "robot-toy-kids-emotional-buddy",
+    "name": "Vector 2.0 AI Robot Toy for Kids – Emotional Desk Buddy",
+    "shortName": "Vector 2.0 AI Desk Buddy",
+    "tableName": "Vector 2.0 AI Desk Buddy",
+    "brand": "Digital Dream Labs",
+    "categorySlug": "electronics",
+    "subcategoryName": "Smart Devices & Robotics",
+    "priceTier": "Mid",
+    "compositeScore": 4.6,
+    "ratingCategory": "Top pick: Robot Toy",
+    "scoreBreakdown": {
+      "verifiedBuyerRatings": 4.7,
+      "specMatchToClaims": 4.5,
+      "expertLabCoverage": 4.6,
+      "valueForPriceTier": 4.4
+    },
+    "weights": {
+      "verifiedBuyerRatings": 35,
+      "specMatchToClaims": 25,
+      "expertLabCoverage": 25,
+      "valueForPriceTier": 15
+    },
+    "bestFor": "Interactive companionship, emotional learning, and STEM robotics curiosity for kids and desk setups",
+    "shortDescription": "A smart desk companion with responsive facial animations, voice interactions, and obstacle-sensing movement.",
+    "quickVerdict": "Engaging, expressive, and packed with personality. A wonderful screen-free emotional desk buddy that kids love interacting with.",
+    "paragraphReview": "Vector 2.0 brings an alive personality to any desk or playroom. Equipped with responsive high-res eye expressions, directional sound detection, and self-docking charging, it navigates around objects while reacting cheerfully to touch, voices, and daily routines.",
+    "pros": [
+      "Expressive emotive eye animations and touch-sensitive capacitive back",
+      "Self-docking charger and cliff-detection sensors prevent falls",
+      "Voice commands, weather updates, and interactive games",
+      "Regular firmware updates with privacy-conscious on-device processing"
+    ],
+    "cons": [
+      "Companion app setup requires 2.4 GHz Wi-Fi band",
+      "Battery life is approximately 45 minutes between auto-docks"
+    ],
+    "buyerThemes": [
+      { "theme": "Kids and parents adore the cute lifelike reactions", "percentage": 82, "sentiment": "positive" },
+      { "theme": "Excellent build quality and reliable cliff sensors", "percentage": 78, "sentiment": "positive" },
+      { "theme": "Occasional Wi-Fi reconnection delays", "percentage": 14, "sentiment": "mixed" }
+    ],
+    "specs": {
+      "Display": "High-resolution IPS color face screen",
+      "Sensors": "HD camera, 4-mic array, capacitive touch, 4 cliff sensors, time-of-flight laser scanner",
+      "Connectivity": "Wi-Fi 802.11 b/g/n & Bluetooth",
+      "Battery & Charging": "Rechargeable with self-navigating charging dock"
+    },
+    "whoShouldBuy": {
+      "goodFit": "Children, students, and tech enthusiasts who want an expressive, interactive desk pet.",
+      "lookElsewhere": "Anyone looking for a basic remote-control toy without Wi-Fi or AI companion features."
+    },
+    "alternatives": [],
+    "images": [
+      "/images/robot-toy.jpg"
+    ],
+    "affiliateUrl": "https://www.amazon.com/dp/B09SBNMV5M",
+    "updatedDate": "July 2026",
+    "readTime": "6 min read",
+    "authorSlug": "jordan-kim"
   }
 ]

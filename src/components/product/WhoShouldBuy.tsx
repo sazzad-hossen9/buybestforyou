@@ -1,4 +1,4 @@
-import { CheckCircle2, XCircle } from 'lucide-react';
+import Link from 'next/link';
 
 interface WhoShouldBuyProps {
   goodFit: string;
@@ -8,40 +8,35 @@ interface WhoShouldBuyProps {
 export function WhoShouldBuy({ goodFit, lookElsewhere }: WhoShouldBuyProps) {
   return (
     <section className="mb-12">
-      <div className="mb-6">
-        <div className="eyebrow text-[#5B6470] mb-1 font-bold">DECISION GUIDE</div>
-        <h2 className="h-2">Who should buy it</h2>
+      <div className="mb-4">
+        <h2 className="text-[28px] leading-[34px] font-bold text-ink tracking-tight">
+          Who should buy it
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Good fit */}
-        <div className="panel-pros flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <CheckCircle2 className="w-5 h-5 text-[#007A58]" />
-              <h3 className="font-bold text-[16px] text-[#007A58]">
-                A good fit if...
-              </h3>
-            </div>
-            <p className="text-[14px] leading-[24px] text-[#1A1D21]">
-              {goodFit}
-            </p>
-          </div>
+        <div className="rounded-[var(--r-card)] bg-white border border-border p-5 shadow-xs">
+          <h3 className="font-bold text-[15px] leading-[20px] text-ink mb-2">
+            Good fit
+          </h3>
+          <p className="text-[14px] leading-[22px] text-ink">
+            {goodFit}
+          </p>
         </div>
 
         {/* Look elsewhere */}
-        <div className="panel-cons flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <XCircle className="w-5 h-5 text-[#B34E00]" />
-              <h3 className="font-bold text-[16px] text-[#B34E00]">
-                Look elsewhere if...
-              </h3>
-            </div>
-            <p className="text-[14px] leading-[24px] text-[#1A1D21]">
-              {lookElsewhere}
-            </p>
-          </div>
+        <div className="rounded-[var(--r-card)] bg-white border border-border p-5 shadow-xs">
+          <h3 className="font-bold text-[15px] leading-[20px] text-ink mb-2">
+            Look elsewhere
+          </h3>
+          <p className="text-[14px] leading-[22px] text-ink">
+            Deep scratches, rust spots, matte or pearlescent finishes. See our{' '}
+            <Link href="/reviews/best-robot-lawn-mower-2025" className="text-trust underline hover:text-ink">
+              full roundup
+            </Link>
+            .
+          </p>
         </div>
       </div>
     </section>

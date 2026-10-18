@@ -79,7 +79,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
 
       {/* Mobile Search Overlay Bar */}
       {showSearch && (
-        <div className="absolute left-0 right-0 top-full bg-[#1A1D21] border-b border-white/10 p-4 z-50">
+        <div className="absolute left-0 right-0 top-full bg-ink border-b border-footer-divider p-4 z-50">
           <SearchBox
             autoFocus
             onSelect={() => setShowSearch(false)}
@@ -91,7 +91,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
       {/* Mobile Drawer */}
       {isOpen && (
         <div
-          className="fixed inset-0 top-[60px] bg-[#1A1D21]/95 backdrop-blur-md z-40 flex flex-col p-6 overflow-y-auto"
+          className="fixed inset-0 top-[60px] bg-ink z-40 flex flex-col p-6 overflow-y-auto"
           role="dialog"
           aria-modal="true"
         >
@@ -101,11 +101,11 @@ export function MobileMenu({ items }: MobileMenuProps) {
 
           <nav className="flex flex-col space-y-3">
             {items.map((item, idx) => (
-              <div key={idx} className="border-b border-white/10 pb-2">
+              <div key={idx} className="border-b border-footer-divider pb-2">
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-[18px] font-semibold text-white py-1 hover:text-[#B84A14] transition-colors"
+                  className="block text-[length:var(--fs-body-lg)] leading-[var(--lh-body-lg)] font-semibold text-white py-1 hover:text-cta transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -116,7 +116,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
                         key={sIdx}
                         href={sub.href}
                         onClick={() => setIsOpen(false)}
-                        className="block text-[14px] text-[#B4BBC4] py-1 hover:text-white"
+                        className="block text-[length:var(--fs-caption)] leading-[var(--lh-caption)] text-on-ink py-1 hover:text-white"
                       >
                         {sub.name}
                       </Link>
@@ -127,7 +127,7 @@ export function MobileMenu({ items }: MobileMenuProps) {
             ))}
           </nav>
 
-          <div className="mt-8 pt-4 border-t border-white/10 text-xs text-[#B4BBC4]">
+          <div className="mt-8 pt-4 border-t border-footer-divider text-xs text-on-ink">
             <p>Independent buying guides and evidence-backed reviews.</p>
           </div>
         </div>

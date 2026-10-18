@@ -100,43 +100,43 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-[#F6F7F9] border-b border-[#E4E7EB] py-3">
-        <div className="container-page">
+      <div className="bg-surface-muted border-b border-border py-3">
+        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16">
           <Breadcrumb items={breadcrumbs} />
         </div>
       </div>
 
-      <main className="container-page py-8 lg:py-12">
+      <main className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16 py-8 lg:py-12">
         {/* Article Headline & Meta */}
         <header className="max-w-3xl mb-8">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#7A4E2D]"></span>
-            <span className="text-[13px] font-bold uppercase tracking-wider text-[#7A4E2D]">
+            <span className="w-2.5 h-2.5 rounded-full bg-tint-auto-dot"></span>
+            <span className="text-[13px] font-bold uppercase tracking-wider text-tint-auto-dot">
               {post.tag || post.categoryName}
             </span>
           </div>
 
-          <h1 className="h-1 mb-4">
+          <h1 className="text-[length:var(--fs-h1)] leading-[var(--lh-h1)] tracking-[var(--ls-h1)] font-extrabold text-ink tracking-tight mb-4">
             {post.title}
           </h1>
 
-          <p className="text-body-lg text-[#5B6470] mb-5">
+          <p className="text-[18px] leading-[28px] text-muted mb-5">
             {post.subtitle}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 text-caption text-[14px] text-[#5B6470] pt-2 border-t border-[#E4E7EB]">
+          <div className="flex flex-wrap items-center gap-4 text-[14px] text-muted pt-2 border-t border-border">
             <span className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-[#8A929C]" />
+              <Calendar className="w-4 h-4 text-border-input" />
               Updated {post.updatedDate}
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-[#8A929C]" />
+              <Clock className="w-4 h-4 text-border-input" />
               {post.readTimeMinutes} min read
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
-              <UserCheck className="w-4 h-4 text-[#2B5D7C]" />
+              <UserCheck className="w-4 h-4 text-trust" />
               By {author?.name || 'Marcus Webb'}
             </span>
           </div>
@@ -144,7 +144,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Hero Image */}
         {post.heroImage && (
-          <div className="max-w-4xl relative aspect-16/9 rounded-[20px] bg-neutral-100 overflow-hidden mb-12 border border-[#E4E7EB]">
+          <div className="max-w-4xl relative aspect-16/9 rounded-[var(--r-card-feature)] bg-surface-muted overflow-hidden mb-12 border border-border">
             <SafeImage
               src={post.heroImage}
               alt={post.title}
@@ -156,15 +156,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* 2-Column Article Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[268px_1fr] gap-10">
           {/* Left Sticky TOC */}
-          <aside className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-24 space-y-6">
+          <aside className="hidden lg:block w-full h-full">
+            <div className="sticky top-[calc(var(--header-total-height,109px)+1.5rem)] space-y-6">
               <TOC items={tocItems} />
 
-              <div className="p-4 rounded-[14px] bg-[#E6EFF4] border border-[#D1E1EB] text-[13px] text-[#1A1D21]">
-                <div className="font-bold mb-1 text-[#2B5D7C]">Editorial notice</div>
-                <p className="text-[#5B6470] text-[12px] leading-relaxed">
+              <div className="p-4 rounded-full bg-tint-trust-bg border border-tint-trust-border text-[13px] text-ink">
+                <div className="font-bold mb-1 text-trust">Editorial notice</div>
+                <p className="text-muted text-[12px] leading-relaxed">
                   We verify repair techniques through mechanical guides and expert consensus.
                 </p>
               </div>
@@ -172,11 +172,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </aside>
 
           {/* Right Article Body */}
-          <article className="lg:col-span-9 max-w-3xl">
+          <article className="w-full min-w-0">
             {/* The Short Answer Callout */}
-            <div id="the-short-answer" className="callout-blue mb-10 scroll-mt-24">
-              <div className="eyebrow text-[#2B5D7C] mb-1 font-bold">THE SHORT ANSWER</div>
-              <p className="text-[16px] leading-[26px] text-[#1A1D21] font-medium">
+            <div id="the-short-answer" className="p-6 rounded-[var(--r-card)] bg-tint-elec-bg border border-tint-elec-border mb-10 scroll-mt-[calc(var(--header-total-height,109px)+1.5rem)]">
+              <div className="text-[12px] uppercase tracking-wider text-trust mb-1 font-bold">THE SHORT ANSWER</div>
+              <p className="text-[16px] leading-[26px] text-ink font-medium">
                 {post.shortAnswer}
               </p>
             </div>
@@ -187,17 +187,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <section
                   key={step.stepNumber}
                   id={`step-${step.stepNumber}`}
-                  className="scroll-mt-24 border-b border-[#E4E7EB] pb-8 last:border-b-0"
+                  className="scroll-mt-[calc(var(--header-total-height,109px)+1.5rem)] border-b border-border pb-8 last:border-b-0"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
-                    <span className="w-7 h-7 rounded-full bg-[#1A1D21] text-white flex items-center justify-center font-bold text-[13px]">
+                    <span className="w-7 h-7 rounded-full bg-ink text-white flex items-center justify-center font-bold text-[13px]">
                       {step.stepNumber}
                     </span>
-                    <h2 className="text-[20px] font-bold text-[#1A1D21] capitalize">
+                    <h2 className="text-[20px] leading-[26px] font-bold text-ink capitalize">
                       {step.title}
                     </h2>
                   </div>
-                  <p className="text-[16px] leading-[26px] text-[#1A1D21] pl-9">
+                  <p className="text-[18px] leading-[30px] text-ink pl-9">
                     {step.content}
                   </p>
                 </section>
@@ -206,24 +206,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Inline Product Recommendation */}
             {post.inlineProduct && (
-              <div id="our-recommendation" className="scroll-mt-24">
+              <div id="our-recommendation" className="scroll-mt-[calc(var(--header-total-height,109px)+1.5rem)]">
                 <ProductInlineCard {...post.inlineProduct} />
               </div>
             )}
 
             {/* Common Mistakes */}
             {post.commonMistakes && post.commonMistakes.length > 0 && (
-              <section id="common-mistakes" className="mb-12 scroll-mt-24 p-6 rounded-[16px] bg-[#FBEDE3] border border-[#F0D5DF]">
+              <section id="common-mistakes" className="mb-12 scroll-mt-[calc(var(--header-total-height,109px)+1.5rem)] p-6 rounded-[var(--r-card)] bg-cons-bg border border-tint-auto-border">
                 <div className="flex items-center gap-2 mb-3">
-                  <AlertTriangle className="w-5 h-5 text-[#B34E00]" />
-                  <h3 className="font-bold text-[18px] text-[#B34E00]">
+                  <AlertTriangle className="w-5 h-5 text-negative" />
+                  <h3 className="font-bold text-[18px] text-negative">
                     Common mistakes to avoid
                   </h3>
                 </div>
-                <ul className="space-y-2.5 text-[15px] text-[#1A1D21]">
+                <ul className="space-y-2.5 text-[15px] text-ink">
                   {post.commonMistakes.map((mistake, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-[#B34E00] font-bold select-none">•</span>
+                      <span className="text-negative font-bold select-none">•</span>
                       <span>{mistake}</span>
                     </li>
                   ))}
@@ -232,10 +232,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Affiliate Commission Disclosure Box */}
-            <div className="mb-12 p-4 rounded-[14px] bg-[#F6F7F9] border border-[#E4E7EB] text-[13px] text-[#5B6470] leading-relaxed">
-              <span className="font-bold text-[#1A1D21]">Affiliate Disclosure: </span>
+            <div className="mb-12 p-4 rounded-full bg-surface-muted border border-border text-[13px] text-muted leading-relaxed">
+              <strong className="font-bold text-ink">Affiliate Disclosure: </strong>
               {post.affiliateDisclosureText}{' '}
-              <Link href="/legal/affiliate-disclosure" className="text-[#2B5D7C] underline font-medium">
+              <Link href="/legal/affiliate-disclosure" className="text-trust underline font-medium">
                 Read our full disclosure
               </Link>.
             </div>
@@ -247,21 +247,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-              <section className="mt-14 pt-10 border-t border-[#E4E7EB]">
+              <section className="mt-14 pt-10 border-t border-border">
                 <div className="mb-6">
-                  <div className="eyebrow text-[#5B6470] mb-1 font-bold">MORE ARTICLES</div>
-                  <h2 className="h-2">Keep reading</h2>
+                  <div className="text-[12px] uppercase tracking-wider text-muted mb-1 font-bold">MORE ARTICLES</div>
+                  <h2 className="text-[24px] leading-[30px] md:text-[28px] md:leading-[34px] font-extrabold text-ink tracking-tight">Keep reading</h2>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {relatedPosts.map((rPost) => (
                     <Link
                       key={rPost.slug}
                       href={`/blog/${rPost.slug}`}
-                      className="group card bg-white border border-[#E4E7EB] rounded-[16px] p-4 hover:border-[#8A929C] transition-all flex flex-col justify-between"
+                      className="group bg-white border border-border rounded-[var(--r-card)] p-4 hover:border-border-input transition-all flex flex-col justify-between"
                     >
                       <div>
-                        <div className="relative aspect-16/10 rounded-[10px] bg-neutral-100 overflow-hidden mb-3 border border-[#E4E7EB]">
+                        <div className="relative aspect-16/10 rounded-[var(--r-thumb)] bg-surface-muted overflow-hidden mb-3 border border-border">
                           <SafeImage
                             src={rPost.heroImage || '/images/placeholder.jpg'}
                             alt={rPost.title}
@@ -269,11 +269,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
-                        <h4 className="font-bold text-[15px] text-[#1A1D21] group-hover:text-[#B84A14] transition-colors leading-snug line-clamp-2">
+                        <h4 className="font-bold text-[15px] text-ink group-hover:text-cta transition-colors leading-snug line-clamp-2">
                           {rPost.title}
                         </h4>
                       </div>
-                      <div className="mt-3 pt-2 border-t border-neutral-100 flex items-center justify-between text-[12px] font-bold text-[#B84A14]">
+                      <div className="mt-3 pt-2 border-t border-border flex items-center justify-between text-[12px] font-bold text-cta">
                         <span>Read guide</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>

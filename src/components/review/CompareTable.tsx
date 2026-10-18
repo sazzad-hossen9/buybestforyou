@@ -1,7 +1,5 @@
-import { ScoreRing } from '@/components/ui/ScoreRing';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { AffiliateLink } from '@/components/ui/AffiliateLink';
-import { ExternalLink } from 'lucide-react';
 import type { Product } from '@/types';
 
 interface CompareTableProps {
@@ -10,83 +8,66 @@ interface CompareTableProps {
 
 export function CompareTable({ products }: CompareTableProps) {
   return (
-    <section id="compare-at-a-glance" className="mb-14 scroll-mt-24">
-      <div className="mb-4">
-        <h2 className="h-2 mb-1">Compare at a glance</h2>
-        <p className="text-caption">
-          Ratings based on composite score, not hands-on testing. See methodology below.
-        </p>
-      </div>
+    <section id="compare-at-a-glance" className="mb-14 scroll-mt-[calc(var(--header-total-height,109px)+1.5rem)]">
+      {/* Desktop / Tablet: Compare at a glance Table (md and up) */}
+      <div className="hidden md:block">
+        <h2 className="text-[length:var(--fs-h3)] leading-[var(--lh-h3)] tracking-[var(--ls-h3)] font-extrabold tracking-tight text-ink mb-6">Compare at a glance</h2>
 
-      <div className="bg-white border border-[#E4E7EB] rounded-[16px] overflow-hidden shadow-xs">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse min-w-[680px]">
+        <div className="border-t border-b border-border overflow-x-auto">
+          <table className="w-full text-left table-fixed border-collapse min-w-[640px]">
+            <colgroup>
+              <col style={{ width: '34%' }} />
+              <col style={{ width: '26%' }} />
+              <col style={{ width: '10%' }} />
+              <col style={{ width: '13%' }} />
+              <col style={{ width: '17%' }} />
+            </colgroup>
             <thead>
-              <tr className="bg-[#F6F7F9] border-b border-[#E4E7EB] text-[13px] font-bold text-[#5B6470] uppercase tracking-wider">
-                <th className="py-3.5 px-4">Model</th>
-                <th className="py-3.5 px-4">Best For</th>
-                <th className="py-3.5 px-4">Coverage & Sound</th>
-                <th className="py-3.5 px-4 text-center">Score</th>
-                <th className="py-3.5 px-4 text-center">Price Tier</th>
-                <th className="py-3.5 px-4 text-right">Price Check</th>
+              <tr className="border-b border-border text-[13px] font-bold text-ink">
+                <th className="py-3 px-3">Product</th>
+                <th className="py-3 px-3">Best for</th>
+                <th className="py-3 px-3 text-center">Score</th>
+                <th className="py-3 px-3 text-center">Tier</th>
+                <th className="py-3 px-3 text-right"></th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E4E7EB] text-[14px]">
+            <tbody className="divide-y divide-border text-[length:var(--fs-caption)] leading-[var(--lh-caption)]">
               {products.map((product, idx) => {
-                const coverage = product.specs['Cutting area capacity'] || product.specs['Type'] || 'Standard';
-                const sound = product.specs['Sound level'] || 'Standard';
+                const name = product.tableName || product.name.split('-')[0].trim();
+                const bestFor = product.bestForShort || product.bestFor;
+                const anchorId = `product-${idx + 1}`;
 
                 return (
-                  <tr key={product.id} className="hover:bg-neutral-50/70 transition-colors">
-                    <td className="py-4 px-4 font-semibold text-[#1A1D21]">
-                      <div className="flex items-center gap-3">
-                        <div className="relative w-12 h-12 rounded-lg bg-neutral-100 overflow-hidden shrink-0 border border-[#E4E7EB]">
-                          <SafeImage
-                            src={product.images[0] || '/images/placeholder.jpg'}
-                            alt={product.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div>
-                          <a href={`#product-${idx + 1}`} className="hover:text-[#B84A14] font-bold text-[#1A1D21] transition-colors block">
-                            {product.brand} {product.name.split('-')[0].trim()}
-                          </a>
-                          <span className="text-[12px] font-normal text-[#5B6470]">
-                            {product.ratingCategory}
-                          </span>
-                        </div>
-                      </div>
+                  <tr key={product.id} className="hover:bg-surface-muted transition-colors">
+                    <td className="py-4 px-3 align-middle font-medium text-trust">
+                      <a
+                        href={`#${anchorId}`}
+                        className="hover:underline text-trust font-medium leading-snug break-words"
+                      >
+                        {name}
+                      </a>
                     </td>
 
-                    <td className="py-4 px-4 text-[#5B6470] max-w-[200px]">
-                      <span className="line-clamp-2">{product.bestFor}</span>
+                    <td className="py-4 px-3 align-middle text-muted leading-snug text-[13.5px]">
+                      {bestFor}
                     </td>
 
-                    <td className="py-4 px-4 text-[#1A1D21] text-[13px]">
-                      <div className="font-medium">{coverage}</div>
-                      <div className="text-[#5B6470]">{sound}</div>
+                    <td className="py-4 px-3 align-middle text-center font-bold text-ink text-[15px]">
+                      {product.compositeScore.toFixed(1)}
                     </td>
 
-                    <td className="py-4 px-4 text-center">
-                      <div className="inline-flex justify-center">
-                        <ScoreRing score={product.compositeScore} size={42} strokeWidth={3.5} />
-                      </div>
-                    </td>
-
-                    <td className="py-4 px-4 text-center">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[12px] font-semibold bg-neutral-100 text-[#1A1D21]">
+                    <td className="py-4 px-3 align-middle text-center">
+                      <span className="inline-block px-2.5 py-1 rounded-full text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] font-medium border border-border bg-white text-ink whitespace-nowrap">
                         {product.priceTier}
                       </span>
                     </td>
 
-                    <td className="py-4 px-4 text-right">
+                    <td className="py-4 px-3 align-middle text-right">
                       <AffiliateLink
                         href={product.affiliateUrl}
-                        className="btn-cta text-[13px] py-1.5 px-3 whitespace-nowrap inline-flex items-center gap-1"
+                        className="inline-flex items-center justify-center rounded-full bg-cta px-3 py-2 text-[13px] font-semibold text-white hover:bg-cta-hover transition-colors whitespace-nowrap"
                       >
-                        <span>Check price</span>
-                        <ExternalLink className="w-3 h-3" />
+                        Check price
                       </AffiliateLink>
                     </td>
                   </tr>
@@ -94,6 +75,42 @@ export function CompareTable({ products }: CompareTableProps) {
               })}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* Mobile: Top picks at a glance List (below md) */}
+      <div className="md:hidden">
+        <h2 className="text-[length:var(--fs-h3)] leading-[var(--lh-h3)] tracking-[var(--ls-h3)] font-bold text-ink mb-4">Top picks at a glance</h2>
+        <div className="space-y-3">
+          {products.map((product, idx) => {
+            const name = product.tableName || product.name.split('-')[0].trim();
+            const anchorId = `product-${idx + 1}`;
+
+            return (
+              <a
+                key={product.id}
+                href={`#${anchorId}`}
+                className="flex items-center gap-3.5 p-3 rounded-[var(--r-card)] border border-border bg-white hover:border-border-input transition-all block"
+              >
+                <div className="relative w-16 h-14 shrink-0 rounded-lg overflow-hidden bg-surface-muted border border-border flex items-center justify-center p-1">
+                  <SafeImage
+                    src={product.images[0] || '/images/placeholder.jpg'}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-1"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-bold text-[15px] text-ink leading-snug truncate">
+                    {name}
+                  </h3>
+                  <p className="text-[13px] text-muted mt-0.5">
+                    Score {product.compositeScore.toFixed(1)} · {product.priceTier} tier
+                  </p>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

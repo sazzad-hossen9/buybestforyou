@@ -52,22 +52,22 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
   return (
     <div>
       {/* Search Input & Category Pills Bar */}
-      <div className="bg-white border border-[#E4E7EB] rounded-[20px] p-4 lg:p-6 mb-10 shadow-xs">
+      <div className="bg-white border border-border rounded-[20px] p-4 lg:p-6 mb-10 shadow-xs">
         {/* Search Input */}
         <div className="relative mb-5">
-          <Search className="w-5 h-5 text-[#8A929C] absolute left-4 top-1/2 -translate-y-1/2" />
+          <Search className="w-5 h-5 text-border-input absolute left-4 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={query}
             onChange={(e) => handleQueryChange(e.target.value)}
             placeholder="Search guides, topics or products..."
-            className="w-full pl-11 pr-10 py-3 rounded-[14px] border border-[#8A929C] text-[15px] text-[#1A1D21] placeholder-[#5B6470] focus:outline-none focus:ring-2 focus:ring-[#2B5D7C] focus:border-transparent"
+            className="w-full pl-11 pr-10 py-3 rounded-[14px] border border-border-input text-[15px] text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-trust focus:border-transparent"
           />
           {query && (
             <button
               type="button"
               onClick={() => handleQueryChange('')}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8A929C] hover:text-[#1A1D21]"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-border-input hover:text-ink"
               aria-label="Clear search"
             >
               <X className="w-4 h-4" />
@@ -80,10 +80,10 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
           <button
             type="button"
             onClick={() => handleCategoryChange('all')}
-            className={`px-4 py-1.5 rounded-full text-[14px] font-semibold transition-all shrink-0 ${
+            className={`px-4 py-1.5 rounded-full text-[14px] font-semibold transition-all shrink-0 whitespace-nowrap ${
               selectedCategory === 'all'
-                ? 'bg-[#1A1D21] text-white shadow-xs'
-                : 'bg-[#F6F7F9] text-[#5B6470] hover:bg-neutral-200 hover:text-[#1A1D21]'
+                ? 'bg-ink text-white shadow-xs'
+                : 'bg-surface-muted text-muted hover:bg-border-light hover:text-ink'
             }`}
           >
             All
@@ -95,10 +95,10 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
                 key={cat.slug}
                 type="button"
                 onClick={() => handleCategoryChange(cat.slug)}
-                className={`px-4 py-1.5 rounded-full text-[14px] font-semibold transition-all shrink-0 flex items-center gap-2 ${
+                className={`px-4 py-1.5 rounded-full text-[14px] font-semibold transition-all shrink-0 whitespace-nowrap flex items-center gap-2 ${
                   isSelected
-                    ? 'bg-[#1A1D21] text-white shadow-xs'
-                    : 'bg-[#F6F7F9] text-[#5B6470] hover:bg-neutral-200 hover:text-[#1A1D21]'
+                    ? 'bg-ink text-white shadow-xs'
+                    : 'bg-surface-muted text-muted hover:bg-border-light hover:text-ink'
                 }`}
               >
                 <span
@@ -114,8 +114,8 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
 
       {/* Meta Counter */}
       <div className="flex items-center justify-between mb-6">
-        <div className="text-[14px] text-[#5B6470]">
-          Showing <span className="font-semibold text-[#1A1D21]">{filteredPosts.length}</span> {filteredPosts.length === 1 ? 'article' : 'articles'}
+        <div className="text-[14px] text-muted">
+          Showing <span className="font-semibold text-ink">{filteredPosts.length}</span> {filteredPosts.length === 1 ? 'article' : 'articles'}
           {selectedCategory !== 'all' && ` in ${categories.find(c => c.slug === selectedCategory)?.name}`}
         </div>
       </div>
@@ -128,9 +128,9 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
           ))}
         </div>
       ) : (
-        <div className="bg-white border border-[#E4E7EB] rounded-[16px] p-12 text-center my-8">
-          <h3 className="text-[18px] font-bold text-[#1A1D21] mb-2">No guides found</h3>
-          <p className="text-[14px] text-[#5B6470] mb-4">
+        <div className="bg-white border border-border rounded-[var(--r-card)] p-12 text-center my-8">
+          <h3 className="text-[18px] font-bold text-ink mb-2">No guides found</h3>
+          <p className="text-[14px] text-muted mb-4">
             Try adjusting your search terms or select another category.
           </p>
           <button
@@ -138,7 +138,7 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
               setSelectedCategory('all');
               setQuery('');
             }}
-            className="btn-secondary text-[14px]"
+            className="rounded-full border border-border bg-white px-4 py-2.5 text-[14px] font-semibold text-ink hover:bg-surface-muted transition-colors"
           >
             Reset filters
           </button>
@@ -147,16 +147,16 @@ export function PostFilters({ initialPosts, categories }: PostFiltersProps) {
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-2 pt-6 border-t border-[#E4E7EB]">
+        <div className="flex items-center justify-center gap-2 pt-6 border-t border-border">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
             <button
               key={pageNum}
               type="button"
               onClick={() => setCurrentPage(pageNum)}
-              className={`w-10 h-10 rounded-[12px] text-[14px] font-bold transition-all ${
+              className={`inline-flex items-center justify-center min-w-[40px] px-3.5 py-2 rounded-full text-[14px] leading-[20px] font-bold transition-all ${
                 pageNum === currentPage
-                  ? 'bg-[#1A1D21] text-white shadow-xs'
-                  : 'bg-white border border-[#E4E7EB] text-[#5B6470] hover:bg-neutral-50 hover:text-[#1A1D21]'
+                  ? 'bg-ink text-white shadow-xs'
+                  : 'bg-white border border-border text-muted hover:bg-surface-muted hover:text-ink'
               }`}
             >
               {pageNum}

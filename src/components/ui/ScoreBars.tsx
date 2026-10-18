@@ -20,22 +20,22 @@ export function ScoreBars({ items, className = '' }: ScoreBarsProps) {
         return (
           <div key={index} className="space-y-1.5">
             <div className="flex items-center justify-between text-[14px] md:text-[15px]">
-              <span className="font-semibold text-[#1A1D21]">
+              <span className="font-semibold text-ink">
                 {item.label}
                 {item.weight !== undefined && (
-                  <span className="text-[#5B6470] font-normal ml-1">
+                  <span className="text-muted font-normal ml-1">
                     ({item.weight}%)
                   </span>
                 )}
               </span>
-              <span className="font-bold text-[#1A1D21]">
+              <span className="font-bold text-ink">
                 {item.score.toFixed(1)}
               </span>
             </div>
             {/* Visual Bar Track */}
-            <div className="bar-track h-2 bg-[#E4E7EB] rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-border rounded-full overflow-hidden">
               <div
-                className="bar-fill bg-[#009E73] h-full rounded-full transition-all duration-500"
+                className="bg-score h-full rounded-full transition-all duration-500"
                 style={{ width: `${percentage}%` }}
               />
             </div>

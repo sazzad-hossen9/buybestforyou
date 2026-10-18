@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { Author } from '@/types';
 
 interface AuthorBoxProps {
@@ -6,32 +5,25 @@ interface AuthorBoxProps {
 }
 
 export function AuthorBox({ author }: AuthorBoxProps) {
+  const role = author.role.replace(' & Tools', '');
+
   return (
-    <div className="card bg-[#F6F7F9] border border-[#E4E7EB] rounded-[16px] p-6 mb-14 flex flex-col sm:flex-row items-start gap-4">
+    <div className="bg-white border border-border rounded-[var(--r-card)] p-6 mb-14 flex flex-col sm:flex-row items-start gap-4">
       <div
-        className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-[18px] text-white shrink-0 shadow-xs"
-        style={{ backgroundColor: author.avatarBg || '#2E6FA3' }}
+        className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-[16px] text-white shrink-0"
+        style={{ backgroundColor: author.avatarBg || 'var(--tint-auto-dot)' }}
       >
         {author.initials}
       </div>
 
       <div className="flex-1">
-        <div className="eyebrow text-[#5B6470] mb-1 font-bold">WRITTEN BY</div>
-        <h4 className="text-[18px] font-bold text-[#1A1D21] mb-0.5">
-          {author.name}
-        </h4>
-        <div className="text-[13px] font-semibold text-[#2B5D7C] mb-2">
-          {author.role}
-        </div>
-        <p className="text-[14px] leading-[22px] text-[#5B6470] mb-3">
+        <div className="text-[12px] text-muted mb-0.5">Written by</div>
+        <h3 className="text-[17px] font-bold text-ink mb-1.5">
+          {author.name}, {role}
+        </h3>
+        <p className="text-[14px] leading-[22px] text-muted">
           {author.persona}
         </p>
-        <Link
-          href="/about"
-          className="text-[13px] font-semibold text-[#2B5D7C] hover:text-[#1A1D21] underline"
-        >
-          Learn more about our editorial process →
-        </Link>
       </div>
     </div>
   );

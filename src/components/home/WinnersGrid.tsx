@@ -11,7 +11,7 @@ export function WinnersGrid({ products }: WinnersGridProps) {
   const curatedProducts = [
     {
       pill: 'Automotive',
-      dotColor: '#7A4E2D',
+      dotColor: 'var(--tint-auto-dot)',
       category: 'Automotive Parts & Accessories',
       title: 'Paint Pen for Automotive',
       score: 4.7,
@@ -23,7 +23,7 @@ export function WinnersGrid({ products }: WinnersGridProps) {
     },
     {
       pill: 'Vacuum',
-      dotColor: '#3A8452',
+      dotColor: 'var(--tint-home-dot)',
       category: 'Vacuum Cleaner',
       title: 'Vacuum cleaner with retractable cord',
       score: 4.5,
@@ -35,7 +35,7 @@ export function WinnersGrid({ products }: WinnersGridProps) {
     },
     {
       pill: 'Projector',
-      dotColor: '#2E6FA3',
+      dotColor: 'var(--tint-elec-dot)',
       category: 'Projector',
       title: 'Best projectors in daylight',
       score: 4.6,
@@ -47,7 +47,7 @@ export function WinnersGrid({ products }: WinnersGridProps) {
     },
     {
       pill: 'Health',
-      dotColor: '#B23A5C',
+      dotColor: 'var(--tint-health-dot)',
       category: 'Health and Fitness',
       title: 'The Best Infrared Face Mask for 2025',
       score: 4.4,
@@ -59,87 +59,92 @@ export function WinnersGrid({ products }: WinnersGridProps) {
     },
   ];
 
-  // Curated showcase matching Homepage design screenshot 1
   const displayProducts = curatedProducts;
   void products;
 
   return (
-    <section className="section bg-white pt-2">
-      <div className="container-page">
+    <section className="py-10 md:py-14 lg:py-[72px] bg-white pt-2">
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16">
         {/* Section Header */}
         <div className="flex items-end justify-between mb-8">
           <div>
-            <p className="eyebrow mb-1">EDITOR&apos;S PICKS</p>
-            <h2 className="h-2">Winners we&apos;d buy first</h2>
+            <p className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] font-bold uppercase tracking-[0.08em] text-muted mb-1">EDITOR&apos;S PICKS</p>
+            <h2 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold tracking-tight text-ink">
+              Winners we&apos;d buy first
+            </h2>
           </div>
           <Link
             href="/category/automotive"
-            className="text-[14px] font-semibold text-[#2B5D7C] hover:text-[#1A1D21] transition-colors"
+            className="text-[length:var(--fs-caption)] leading-[var(--lh-caption)] font-semibold text-trust hover:text-ink transition-colors"
           >
             See all top picks →
           </Link>
         </div>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {displayProducts.map((item, idx) => (
             <div
               key={idx}
-              className="card flex flex-col justify-between hover:shadow-md transition-all duration-200"
+              className="bg-surface border border-border rounded-[var(--r-card)] overflow-hidden shadow-[var(--sh-card)] flex flex-col justify-between hover:shadow-[var(--sh-card-hover)] transition-all duration-200"
             >
-              <div>
-                {/* Media with top-left category badge */}
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-[#F6F7F9]">
-                  <span className="absolute top-2.5 left-2.5 z-10 pill-dark text-[12px] px-2.5 py-0.5">
-                    {item.pill}
-                  </span>
-                  <SafeImage
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Category Dot & Name */}
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span
-                    className="w-2 h-2 rounded-full shrink-0"
-                    style={{ backgroundColor: item.dotColor }}
-                    aria-hidden="true"
-                  />
-                  <span className="text-[12.5px] font-semibold text-[#5B6470] truncate">
-                    {item.category}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="h-3 text-[#1A1D21] mb-2 line-clamp-2">
-                  {item.title}
-                </h3>
-
-                {/* Score & Tier */}
-                <div className="flex items-center gap-1.5 text-[13.5px] mb-3">
-                  <span className="text-[#B84A14] font-bold">★ {item.score.toFixed(1)}</span>
-                  <span className="text-[#5B6470]">composite · {item.tier}</span>
-                </div>
-
-                {/* Description */}
-                <p className="text-[13.5px] leading-[20px] text-[#5B6470] line-clamp-3 mb-4">
-                  {item.description}
-                </p>
+              {/* Media with top-left category badge: full-bleed 150px */}
+              <div className="relative w-full h-[150px] overflow-hidden bg-surface-muted">
+                <span className="absolute top-2.5 left-2.5 z-10 rounded-full bg-ink text-white font-semibold text-[11px] px-2.5 py-0.5">
+                  {item.pill}
+                </span>
+                <SafeImage
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                  className="object-cover"
+                />
               </div>
 
-              {/* Bottom Action */}
-              <div className="pt-3 border-t border-[#E4E7EB] mt-auto">
-                <p className="text-[12px] text-[#5B6470] mb-3">{item.date}</p>
-                <Link
-                  href={item.url}
-                  className="btn-cta btn-block text-center py-2 text-[14px]"
-                >
-                  See top picks
-                </Link>
+              {/* Card Body: 20px padding */}
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  {/* Category Dot & Name */}
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span
+                      className="w-2 h-2 rounded-full shrink-0"
+                      style={{ backgroundColor: item.dotColor }}
+                      aria-hidden="true"
+                    />
+                    <span className="text-[12.5px] font-semibold text-muted truncate">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-[length:var(--fs-h3)] leading-[var(--lh-h3)] tracking-[var(--ls-h3)] font-bold tracking-tight text-ink mb-2 line-clamp-2">
+                    {item.title}
+                  </h3>
+
+                  {/* Score & Tier */}
+                  <div className="flex items-center gap-1.5 text-[13.5px] mb-3">
+                    <span className="text-star">★</span>
+                    <span className="font-bold text-ink">{item.score.toFixed(1)}</span>
+                    <span className="text-muted">composite · {item.tier}</span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-[13.5px] leading-[20px] text-muted line-clamp-3 mb-4">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Bottom Action */}
+                <div className="pt-3 border-t border-border mt-auto">
+                  <p className="text-[12px] text-muted mb-3">{item.date}</p>
+                  <Link
+                    href={item.url}
+                    className="inline-flex items-center justify-center rounded-full bg-cta px-5 py-2.5 text-[14px] leading-[20px] font-semibold text-white shadow-xs hover:bg-cta-hover transition-colors select-none text-center w-full"
+                  >
+                    See top picks
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

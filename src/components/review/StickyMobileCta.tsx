@@ -2,21 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import { AffiliateLink } from '@/components/ui/AffiliateLink';
-import { ExternalLink } from 'lucide-react';
 
 interface StickyMobileCtaProps {
   productName: string;
-  badge: string;
+  badge?: string;
   affiliateUrl: string;
 }
 
-export function StickyMobileCta({ productName, badge, affiliateUrl }: StickyMobileCtaProps) {
+export function StickyMobileCta({ productName, affiliateUrl }: StickyMobileCtaProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show once scrolled down 400px
-      if (window.scrollY > 400) {
+      if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -30,24 +28,26 @@ export function StickyMobileCta({ productName, badge, affiliateUrl }: StickyMobi
   if (!isVisible) return null;
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#1A1D21] text-white p-3 shadow-2xl border-t border-neutral-700 animate-slide-up">
-      <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
+    <aside
+      aria-label="Sticky product recommendation"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.08)] px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom,0.75rem))]"
+    >
+      <div className="flex items-center justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <div className="text-[11px] font-bold text-[#E9F1F8] uppercase tracking-wider truncate">
-            {badge || 'Top Pick'}
+          <div className="font-bold text-[13.5px] text-ink truncate">
+            Top pick: {productName}
           </div>
-          <div className="text-[13px] font-semibold text-white truncate">
-            {productName}
+          <div className="text-[11px] text-muted">
+            Affiliate link
           </div>
         </div>
         <AffiliateLink
           href={affiliateUrl}
-          className="btn-cta text-[13px] py-2 px-3.5 whitespace-nowrap shrink-0 flex items-center gap-1 shadow-md"
+          className="inline-flex items-center justify-center rounded-full bg-cta px-4 py-2 text-[13px] font-semibold text-white hover:bg-cta-hover transition-colors whitespace-nowrap shrink-0"
         >
-          <span>Check price</span>
-          <ExternalLink className="w-3.5 h-3.5" />
+          Check price
         </AffiliateLink>
       </div>
-    </div>
+    </aside>
   );
 }

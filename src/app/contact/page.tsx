@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { SafeImage } from '@/components/ui/SafeImage';
 import { ContactForm } from '@/components/contact/ContactForm';
-import { AlertCircle, DollarSign, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Contact Us & Editorial Inquiries | buybestforyou',
-  description: 'Get in touch with our editorial team. Report errors, ask buying questions, or pitch guest contributions.'
+  title: 'Contact Us | buybestforyou',
+  description:
+    'Questions, corrections or a product we should cover? Send us a note and we\'ll get back to you.'
 };
 
 export default function ContactPage() {
@@ -16,109 +17,94 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="bg-[#F6F7F9] min-h-screen">
-      {/* Breadcrumb Bar */}
-      <div className="bg-white border-b border-[#E4E7EB] py-3">
-        <div className="container-page">
+    <div className="bg-surface min-h-screen">
+      <main className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16 py-6 lg:py-10">
+        {/* Breadcrumb */}
+        <div className="mb-4">
           <Breadcrumb items={breadcrumbs} />
         </div>
-      </div>
 
-      <main className="container-page py-10 lg:py-16">
-        {/* Hero */}
-        <div className="max-w-3xl mb-12">
-          <div className="eyebrow text-[#B84A14] mb-2 font-bold">GET IN TOUCH</div>
-          <h1 className="h-1 mb-4">
-            Contact our editorial team
-          </h1>
-          <p className="text-body-lg text-[#5B6470]">
-            Have a question about a guide, spotted a factual error, or want to contribute? We read and reply to every message.
+        {/* Header */}
+        <header className="max-w-3xl mb-8 lg:mb-10">
+          <h1 className="text-[length:var(--fs-h1)] leading-[var(--lh-h1)] tracking-[var(--ls-h1)] font-extrabold text-ink tracking-tight mb-3">Contact us</h1>
+          <p className="text-[18px] leading-[28px] md:text-[20px] md:leading-[30px] text-muted">
+            Questions, corrections or a product we should cover? Send us a note and we&apos;ll get back to you.
           </p>
-        </div>
+        </header>
 
-        {/* Info Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {/* Spotted an error */}
-          <div className="card bg-white border border-[#E4E7EB] rounded-[16px] p-6 shadow-xs flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-full bg-[#FBEDE3] text-[#B34E00] flex items-center justify-center">
-                  <AlertCircle className="w-5 h-5" />
-                </div>
-                <h2 className="text-[18px] font-bold text-[#1A1D21]">
-                  Spotted an error?
-                </h2>
-              </div>
-              <p className="text-[14px] leading-[22px] text-[#5B6470] mb-4">
-                If you found an out-of-date specification, a broken link, or a misattributed score, please tell us. We update our buying guides every week to keep research accurate.
-              </p>
+        {/* 2-Column Section: Left media & info (532px), Right form (570px) */}
+        <div className="grid grid-cols-1 lg:grid-cols-[532px_570px] justify-between gap-8 lg:gap-0 items-start mb-12 lg:mb-16">
+          {/* Left Column (532px) */}
+          <div className="w-full lg:w-[532px] space-y-4">
+            {/* Scrabble Image */}
+            <div className="relative w-full aspect-[16/10] rounded-[var(--r-card-feature)] overflow-hidden bg-surface-muted border border-border">
+              <SafeImage
+                src="/images/contact-scrabble.jpg"
+                alt="Contact Us scrabble tiles"
+                fill
+                priority
+                className="object-cover"
+              />
             </div>
-            <a
-              href="mailto:editorial@buybestforyou.com"
-              className="text-[14px] font-bold text-[#B84A14] hover:underline flex items-center gap-1.5"
-            >
-              <Mail className="w-4 h-4" />
-              <span>editorial@buybestforyou.com</span>
-            </a>
-          </div>
 
-          {/* How we make money */}
-          <div className="card bg-white border border-[#E4E7EB] rounded-[16px] p-6 shadow-xs flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-9 h-9 rounded-full bg-[#E6EFF4] text-[#2B5D7C] flex items-center justify-center">
-                  <DollarSign className="w-5 h-5" />
+            {/* 2 Mini Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Card 1: Spotted an error? */}
+              <div className="bg-tint-trust-bg rounded-[var(--r-card)] p-5 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-[16px] font-bold text-ink mb-1.5">
+                    Spotted an error?
+                  </h3>
+                  <p className="text-[13.5px] leading-[20px] text-ink">
+                    Tell us the page and what&apos;s wrong. We fix confirmed errors and note the date.
+                  </p>
                 </div>
-                <h2 className="text-[18px] font-bold text-[#1A1D21]">
-                  How we make money
-                </h2>
               </div>
-              <p className="text-[14px] leading-[22px] text-[#5B6470] mb-4">
-                We earn affiliate commissions from Amazon when you buy through our links. We never accept payment for positive reviews, top placements, or sponsored rankings.
-              </p>
+
+              {/* Card 2: How we make money */}
+              <div className="bg-tint-trust-bg rounded-[var(--r-card)] p-5 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-[16px] font-bold text-ink mb-1.5">
+                    How we make money
+                  </h3>
+                  <p className="text-[13.5px] leading-[20px] text-ink mb-3">
+                    Commissions never change rankings.
+                  </p>
+                </div>
+                <Link
+                  href="/legal/affiliate-disclosure"
+                  className="text-[13.5px] font-semibold text-trust hover:underline"
+                >
+                  Read the disclosure
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/legal/affiliate-disclosure"
-              className="text-[14px] font-bold text-[#2B5D7C] hover:underline"
-            >
-              Read our full affiliate disclosure →
-            </Link>
+          </div>
+
+          {/* Right Column: Form */}
+          <div>
+            <ContactForm />
           </div>
         </div>
 
-        {/* Form Container */}
-        <div className="max-w-3xl mb-16">
-          <div className="mb-4">
-            <h2 className="h-2">Send us a message</h2>
-            <p className="text-caption mt-1">
-              Fill out the form below and we will get back to you within 48 hours.
-            </p>
-          </div>
-          <ContactForm />
-        </div>
-      </main>
-
-      {/* Dark "Be a guest author" Band */}
-      <section className="section-dark border-t border-neutral-800">
-        <div className="container-page">
-          <div className="max-w-2xl">
-            <div className="eyebrow text-[#B4BBC4] mb-2 font-bold">CONTRIBUTE</div>
-            <h2 className="text-[28px] md:text-[34px] font-extrabold text-white mb-4">
+        {/* Be a guest author Banner */}
+        <div className="rounded-[var(--r-banner)] bg-ink p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-12">
+          <div>
+            <h2 className="text-[22px] lg:text-[24px] font-extrabold text-white mb-1.5">
               Be a guest author
             </h2>
-            <p className="text-[16px] leading-[26px] text-[#B4BBC4] mb-6">
-              Are you a specialist in power tools, automotive care, or home tech? We welcome expert contributors who prioritize evidence-based testing and plain-English buying advice.
+            <p className="text-[14px] lg:text-[15px] text-on-ink">
+              To become a guest author for buybestforyou, email us at info@buybestforyou.com.
             </p>
-            <a
-              href="mailto:contribute@buybestforyou.com?subject=Guest%20Author%20Pitch"
-              className="btn-light inline-flex items-center gap-2 font-bold"
-            >
-              <Mail className="w-4 h-4 text-[#1A1D21]" />
-              <span>Pitch an article</span>
-            </a>
           </div>
+          <a
+            href="mailto:info@buybestforyou.com"
+            className="inline-flex items-center justify-center rounded-full bg-white px-7 py-2.5 font-bold text-ink hover:bg-surface-muted transition-colors whitespace-nowrap shrink-0"
+          >
+            Email us
+          </a>
         </div>
-      </section>
+      </main>
     </div>
   );
 }

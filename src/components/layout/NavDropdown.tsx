@@ -35,10 +35,10 @@ export function NavDropdown({ name, href, items = [], isActive = false }: NavDro
       <div className="flex items-center">
         <Link
           href={href}
-          className={`inline-flex items-center gap-1.5 py-4 text-[15px] font-medium transition-colors ${
+          className={`inline-flex items-center gap-1.5 h-[34px] text-[15px] font-semibold transition-colors ${
             isActive
-              ? 'text-white border-b-2 border-[#B84A14] -mb-[2px]'
-              : 'text-[#E4E7EB] hover:text-white'
+              ? 'text-white border-b-2 border-nav-active'
+              : 'text-white hover:text-white/85'
           }`}
           aria-expanded={isOpen}
           aria-haspopup="true"
@@ -71,26 +71,26 @@ export function NavDropdown({ name, href, items = [], isActive = false }: NavDro
           className="absolute left-0 top-full pt-1 z-50 min-w-[240px] animate-in fade-in slide-in-from-top-1 duration-150"
           role="menu"
         >
-          <div className="bg-[#1A1D21] border border-white/10 rounded-2xl shadow-2xl py-2 overflow-hidden backdrop-blur-md">
+          <div className="bg-ink border border-footer-divider rounded-[var(--r-card)] shadow-[var(--sh-dropdown)] py-2 overflow-hidden backdrop-blur-md">
             <Link
               href={href}
-              className="flex items-center justify-between px-4 py-2.5 text-[14px] font-semibold text-white hover:bg-white/10 transition-colors"
+              className="flex items-center justify-between px-4 py-2.5 text-[length:var(--fs-caption)] leading-[var(--lh-caption)] font-semibold text-white hover:bg-footer-divider transition-colors"
               onClick={() => setIsOpen(false)}
             >
               <span>All {name} Guides</span>
-              <span className="text-[12px] text-[#B4BBC4]">→</span>
+              <span className="text-[length:var(--fs-eyebrow)] leading-[var(--lh-eyebrow)] tracking-[var(--ls-eyebrow)] text-on-ink">→</span>
             </Link>
-            <div className="h-px bg-white/10 my-1" />
+            <div className="h-px bg-footer-divider my-1" />
             {items.map((sub, idx) => (
               <Link
                 key={idx}
                 href={sub.href}
-                className="flex items-center justify-between px-4 py-2 text-[13.5px] text-[#B4BBC4] hover:text-white hover:bg-white/10 transition-colors"
+                className="flex items-center justify-between px-4 py-2 text-[13.5px] text-on-ink hover:text-white hover:bg-footer-divider transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 <span>{sub.name}</span>
                 {sub.count !== undefined && (
-                  <span className="text-[11.5px] px-2 py-0.5 rounded-full bg-white/10 text-white/80">
+                  <span className="text-[11.5px] px-2 py-0.5 rounded-full bg-footer-divider text-on-ink">
                     {sub.count}
                   </span>
                 )}

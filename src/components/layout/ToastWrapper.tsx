@@ -15,7 +15,7 @@ export function ToastWrapper() {
       draggable
       pauseOnHover
       theme="light"
-      toastClassName="font-sans text-[14px] rounded-xl shadow-lg border border-[#E4E7EB]"
+      toastClassName="font-sans text-[length:var(--fs-caption)] leading-[var(--lh-caption)] rounded-[var(--r-card)] shadow-lg border border-border"
     />
   );
 }

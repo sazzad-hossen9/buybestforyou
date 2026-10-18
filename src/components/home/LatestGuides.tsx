@@ -31,11 +31,13 @@ export function LatestGuides({ initialReviews }: LatestGuidesProps) {
   const canLoadMore = visibleCount < filtered.length;
 
   return (
-    <section className="section bg-white">
-      <div className="container-page">
+    <section className="py-10 md:py-14 lg:py-[72px] bg-white">
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-16">
         {/* Section Title & Filter Pills */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          <h2 className="h-2">Latest reviews and guides</h2>
+          <h2 className="text-[length:var(--fs-h2)] leading-[var(--lh-h2)] tracking-[var(--ls-h2)] font-extrabold tracking-tight text-ink">
+            Latest reviews and guides
+          </h2>
 
           {/* Category Filter Pills (Hidden on mobile or horizontally scrollable) */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
@@ -49,10 +51,10 @@ export function LatestGuides({ initialReviews }: LatestGuidesProps) {
                     setSelectedCategory(cat.slug);
                     setVisibleCount(6);
                   }}
-                  className={`px-3.5 py-1.5 rounded-full text-[13px] font-semibold whitespace-nowrap transition-colors ${
+                  className={`px-3.5 py-1.5 rounded-full text-[13px] font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                     isActive
-                      ? 'bg-[#1A1D21] text-white'
-                      : 'bg-[#F1F3F5] text-[#1A1D21] hover:bg-[#E4E7EB]'
+                      ? 'bg-ink text-white'
+                      : 'bg-surface-muted text-ink hover:bg-border'
                   }`}
                 >
                   {cat.label}
@@ -68,48 +70,52 @@ export function LatestGuides({ initialReviews }: LatestGuidesProps) {
             <Link
               key={guide.slug}
               href={`/reviews/${guide.slug}`}
-              className="card group flex flex-col justify-between hover:shadow-md transition-all duration-200"
+              className="bg-surface border border-border rounded-[var(--r-card)] overflow-hidden shadow-[var(--sh-card)] group flex flex-col justify-between hover:shadow-[var(--sh-card-hover)] transition-all duration-200"
             >
-              <div>
-                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-[#F6F7F9]">
-                  <SafeImage
-                    src={guide.featuredImage}
-                    alt={guide.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#007A58]" aria-hidden="true" />
-                  <span className="text-[12.5px] font-semibold text-[#5B6470]">
-                    {guide.categoryName} · {guide.guideType}
-                  </span>
-                </div>
-
-                <h3 className="h-3 text-[#1A1D21] group-hover:text-[#B84A14] transition-colors mb-3">
-                  {guide.title}
-                </h3>
+              {/* Full-bleed top image 160px */}
+              <div className="relative w-full h-[160px] overflow-hidden bg-surface-muted">
+                <SafeImage
+                  src={guide.featuredImage}
+                  alt={guide.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
 
-              <div className="pt-3 border-t border-[#E4E7EB] text-[13px] text-[#5B6470]">
-                <span>Updated {guide.updatedDate}</span>
-                {guide.readTimeMinutes > 0 && <span> · {guide.readTimeMinutes} min read</span>}
+              {/* Card Body: 20px padding */}
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-positive" aria-hidden="true" />
+                    <span className="text-[12.5px] font-semibold text-muted">
+                      {guide.categoryName} · {guide.guideType}
+                    </span>
+                  </div>
+
+                  <h3 className="text-[length:var(--fs-h3)] leading-[var(--lh-h3)] tracking-[var(--ls-h3)] font-bold tracking-tight text-ink group-hover:text-cta transition-colors mb-3">
+                    {guide.title}
+                  </h3>
+                </div>
+
+                <div className="pt-3 border-t border-border text-[13px] text-muted mt-auto">
+                  Updated {guide.updatedDate}
+                  {guide.readTimeMinutes > 0 && ` · ${guide.readTimeMinutes} min read`}
+                </div>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Mobile Compact Row Layout (from Mobile Homepage Screenshot 11) */}
-        <div className="md:hidden divide-y divide-[#E4E7EB] mb-8">
+        <div className="md:hidden divide-y divide-border mb-8">
           {displayed.map((guide) => (
             <Link
               key={guide.slug}
               href={`/reviews/${guide.slug}`}
               className="py-4 flex items-center gap-4 group"
             >
-              <div className="relative w-24 h-20 rounded-xl overflow-hidden shrink-0 bg-[#F6F7F9]">
+              <div className="relative w-24 h-20 rounded-xl overflow-hidden shrink-0 bg-tint-light">
                 <SafeImage
                   src={guide.featuredImage}
                   alt={guide.title}
@@ -120,13 +126,13 @@ export function LatestGuides({ initialReviews }: LatestGuidesProps) {
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="text-[12px] font-semibold text-[#5B6470] mb-0.5">
+                <p className="text-[12px] font-semibold text-muted mb-0.5">
                   {guide.categoryName}
                 </p>
-                <h4 className="text-[14px] font-bold text-[#1A1D21] leading-snug line-clamp-2 group-hover:text-[#B84A14]">
+                <h4 className="text-[14px] font-bold text-ink leading-snug line-clamp-2 group-hover:text-cta">
                   {guide.title}
                 </h4>
-                <p className="text-[12px] text-[#5B6470] mt-1">
+                <p className="text-[12px] text-muted mt-1">
                   Updated {guide.updatedDate}
                 </p>
               </div>
@@ -140,7 +146,7 @@ export function LatestGuides({ initialReviews }: LatestGuidesProps) {
             <button
               type="button"
               onClick={() => setVisibleCount((prev) => prev + 3)}
-              className="btn-secondary px-8 py-2.5 text-[14px] md:text-[15px]"
+              className="inline-flex items-center justify-center rounded-full bg-surface border-2 border-ink px-8 py-2.5 text-[14px] md:text-[15px] font-semibold text-ink hover:bg-surface-muted transition-colors select-none text-center cursor-pointer"
             >
               Load more
             </button>
